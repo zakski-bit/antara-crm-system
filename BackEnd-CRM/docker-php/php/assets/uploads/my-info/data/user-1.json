@@ -1,0 +1,73 @@
+{
+    "profile": {
+        "name": "Antara",
+        "type": "Perusahaan Media",
+        "email": "pengadaan@antara.co.id",
+        "phone": "021 - 380 1234",
+        "mobile": "0812 9000 1234",
+        "address": "Jalan Medan Merdeka Selatan No.17",
+        "province": "DKI Jakarta",
+        "city": "Jakarta Pusaaa",
+        "district": "Gambir",
+        "subdistrict": "Gambir"
+    },
+    "company": {
+        "name": "PT Media Antara",
+        "type": "BUMN",
+        "email": "corp@antara.co.id",
+        "phone": "021 - 380 1234",
+        "mobile": "0812 9900 1122",
+        "address": "Gedung Graha Antara, Jl. Medan Merdeka Selatan No.17",
+        "province": "DKI Jakarta",
+        "city": "Jakarta Pusat",
+        "district": "Gambir",
+        "subdistrict": "Gambir",
+        "categories": {
+            "jasa_perhotelan": false,
+            "kjpp": true,
+            "fnb": false,
+            "jasa_sewa": false,
+            "kontraktor": false,
+            "peralatan_komputer": false,
+            "jasa_transportasi": false,
+            "logistik_atk": false,
+            "foto_video": false,
+            "kap": false,
+            "konsultan": false,
+            "provider_internet": false
+        }
+    },
+    "pic": {
+        "name": "Rizka Putri",
+        "role": "Procurement Lead",
+        "email": "rizka.putri@antara.co.id",
+        "phone": "0812 7788 9900",
+        "location": "Jakarta Pusat, Indonesia",
+        "note": "Hubungi via email untuk verifikasi dokumen pada hari kerja 09.00 - 17.00 WIB.",
+        "avatar": "assets\/img\/profiles\/avatar-05.jpg"
+    },
+    "documents": {
+        "ktp": {
+            "label": "KTP",
+            "status": "uploaded",
+            "file": "\/php\/assets\/uploads\/my-info\/user-1\/ktp-20251125-134713-9201466d.png",
+            "original": "cetakinvoices.png",
+            "uploaded_at": "25 Nov 2025, 13:47"
+        },
+        "npwp": {
+            "label": "NPWP",
+            "status": "missing",
+            "file": null
+        },
+        "sertifikasi": {
+            "label": "Sertifikasi",
+            "status": "missing",
+            "file": null
+        },
+        "pengalaman": {
+            "label": "List Pengalaman Kerja",
+            "status": "missing",
+            "file": null
+        }
+    }
+}

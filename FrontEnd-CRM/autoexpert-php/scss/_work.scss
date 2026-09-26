@@ -1,0 +1,79 @@
+/*** 
+
+====================================================================
+		Work Section
+====================================================================
+
+***/
+
+.work-section {
+    position: relative;
+    padding: 120px 0 70px;
+    &:before {
+        position: absolute;
+        left: -260px;
+        top: 75px;
+        height: 590px;
+        width: 640px;
+        background-image: url(../images/icons/shape-10.png);
+        background-repeat: no-repeat;
+        background-position: center left;
+        content: "";
+    }
+    .sec-title{
+        margin-bottom: 50px;
+    }
+}
+
+.work-tabs{
+    position: relative;
+    .tab-buttons{
+        display: flex;
+        align-items: center;
+        margin-bottom: 60px;
+        border-radius: 10px;
+        overflow: hidden;
+        .tab-btn{
+            width: 100%;
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 50px;
+            color: var(--theme-color1);
+            text-align: center;
+            padding: 30px 30px;
+            font-family: var(--title-font);
+            background-color: #f4f5f8;
+            cursor: pointer;
+            &.active-btn{
+                background-color: var(--bg-theme-color1);
+                color: var(--theme-color-light);
+            }
+        }
+    }
+    .content-column{
+        position: relative;
+        margin-bottom: 50px;
+        .inner-column{
+            padding: 0 35px;
+            h3{
+                font-size: 34px;
+                margin-bottom: 40px;
+            }
+            > .text{
+                margin-bottom: 40px;
+            }
+        }
+        .about-block-two:last-child{
+            margin-bottom: 0;
+        }
+    }
+    .image-column{
+        position: relative;
+        margin-bottom: 50px;
+        .image{
+            margin-bottom: 0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+    }
+}

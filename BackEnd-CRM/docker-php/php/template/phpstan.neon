@@ -1,0 +1,16 @@
+parameters:
+    level: 8
+    paths:
+        - src/
+        - partials/
+    excludePaths:
+        - tests/
+    reportUnmatchedIgnoredErrors: false
+
+    ignoreErrors:
+        - '#Call to an undefined method [a-zA-Z0-9\\_]+::[a-zA-Z0-9\\_]+\(\)#'
+        - '#Access to an undefined property [a-zA-Z0-9\\_]+::\$[a-zA-Z0-9\\_]+#'
+        - '#Undefined variable: \$[a-zA-Z0-9\\_]+#'
+        - '#Undefined constant [a-zA-Z0-9\\_]+#'
+        - '#missingType\.iterableValue#'
+        - '#missingType\.generics#'

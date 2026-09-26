@@ -1,0 +1,22 @@
+{
+  "name": "dreamstechnologies/kanakku",
+  "description": "Kanakku - Invoice and Billing Management Admin Dashboard Template",
+  "require": {
+    "php": "^8.1",
+    "phpmailer/phpmailer": "^6.8",
+    "vlucas/phpdotenv": "^5.6"
+  },
+  "require-dev": {
+    "phpstan/phpstan": "^1.10"
+  },
+  "autoload": {
+    "psr-4": {
+      "DreamsEMR\\": "src/"
+    }
+      },
+    "scripts": {
+        "test": "phpstan analyse src/ partials/ --level=8 --generate-baseline --allow-empty-baseline",
+        "test:quick": "phpstan analyse src/ partials/ --level=5",
+        "test:fix": "phpstan analyse src/ partials/ --level=8 --generate-baseline --allow-empty-baseline && echo 'Run phpstan analyse src/ partials/ --level=8 to see current issues'"
+    }
+}

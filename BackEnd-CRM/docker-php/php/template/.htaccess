@@ -1,0 +1,10 @@
+RewriteEngine On
+
+# Redirect /src/assets/* to /assets/*
+RewriteRule ^src/assets/(.*)$ assets/$1 [L]
+
+# Rewrite any PHP file to look in src/ folder (if not already in src/)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} !^/src/
+RewriteRule ^(.*\.php)$ src/$1 [L]

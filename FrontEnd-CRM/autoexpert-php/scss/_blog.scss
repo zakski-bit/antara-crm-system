@@ -1,0 +1,150 @@
+/*** 
+
+====================================================================
+    Blog Section
+====================================================================
+
+***/
+
+.blog-section {
+    position: relative;
+    padding: 120px 0 96px;
+    @include media-breakpoint-down(lg){
+        padding: 90px 0 66px;
+    }
+}
+
+.blog-block {
+    .inner-box {
+        position: relative;
+        @include transition(all 300ms ease);
+        &:hover {
+            .image-box {
+                .image {
+                    img {
+                        &:first-child{
+                            transform: translateX(0) scaleX(1);
+                            opacity: 1;
+                            filter: blur(0);
+                        }
+                        &:nth-child(2){
+                            transform: translateX(-50%) scaleX(2);
+                            opacity: 0;
+                            filter: blur(10px);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .image-box {
+        position: relative;
+        .image {
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 0;
+            img {
+                position:relative;
+                width:100%;
+                display:block;
+                transition:all 500ms ease;
+                &:first-child{
+                    position:absolute;
+                    left:0px;
+                    top:0px;
+                    right:0px;
+                    bottom:0px;
+                    z-index:1;
+                    transform: translateX(50%) scaleX(2);
+                    opacity: 0;
+                    filter: blur(10px);
+                }
+            }
+        }
+        .date{
+            position: absolute;
+            left: 30px;
+            bottom: 30px;
+            width: 72px;
+            display: block;
+            z-index: 3;
+            strong {
+                position: relative;
+                display: block;
+                width: 72px;
+                font-size: 14px;
+                font-weight: 700;
+                font-family: var(--title-font);
+                padding: 5px 0 13px;
+                line-height: 1;
+                color: var(--theme-color-light);
+                background-color: var(--theme-color1);
+                text-align: center;
+                span {
+                    display: block;
+                    font-size: 14px;
+                    font-family: var(--text-font);
+                    margin-top: 4px;
+                }
+            }
+        }
+    }
+    .content-box {
+        margin-top: 18px;
+        .post-meta {
+            display: flex;
+            align-items: center;
+            margin-left: 33px;
+            margin-bottom: 8px;          
+            li {
+                position: relative;
+                font-family: var(--title-font);
+                font-size: 14px;
+                font-weight: 400;
+            }
+            .categories {
+                &:hover {
+                    a {
+                        color: var(--theme-color1);
+                    }
+                }
+                &:before {
+                    content: "";
+                    position: absolute;
+                    border-bottom: 2px solid #000;
+                    width: 21px;
+                    left: -33px;
+                    bottom: 14px;
+                }
+                a {
+                    color: var(--theme-color1);
+                }
+            }
+            .date {
+                color: var(--theme-color1);
+                margin-left: 32px;
+                &:before {
+                    bottom: 10px;
+                    bottom: 13px;
+                    border-radius: 50%;
+                    background-color: #AAA9A8;
+                    content: "";
+                    position: absolute;
+                    width: 4px;
+                    height: 4px;
+                    left: -18px;
+                }
+            }
+        }
+        .title {
+            color: var(--theme-color2);
+            margin-left: 33px;
+            @include media-breakpoint-down(xl){
+                font-size: 20px;
+            }
+            &:hover {
+                color: var(--theme-color1);
+            }
+        }
+    }
+}

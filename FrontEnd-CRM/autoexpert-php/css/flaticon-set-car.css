@@ -1,0 +1,329 @@
+@font-face {
+  font-family: 'flaticon-set-car';
+  src:  url('../fonts/flaticon-set-car.eot?oee74j');
+  src:  url('../fonts/flaticon-set-car.eot?oee74j#iefix') format('embedded-opentype'),
+    url('../fonts/flaticon-set-car.ttf?oee74j') format('truetype'),
+    url('../fonts/flaticon-set-car.woff?oee74j') format('woff'),
+    url('../fonts/flaticon-set-car.svg?oee74j#flaticon-set-car') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="flaticon-car-"], [class*=" flaticon-car-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'flaticon-set-car' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+i[class^="flaticon-car-"]::before, i[class*=" flaticon-car-"]::before {
+  font-family: 'flaticon-set-car' !important;
+  line-height: 1;
+}
+
+.flaticon-car-24-hours:before {
+  content: "\e900";
+}
+.flaticon-car-auto-suspension:before {
+  content: "\e901";
+}
+.flaticon-car-automobile:before {
+  content: "\e902";
+}
+.flaticon-car-axle:before {
+  content: "\e903";
+}
+.flaticon-car-battery:before {
+  content: "\e904";
+}
+.flaticon-car-gasoline:before {
+  content: "\e905";
+}
+.flaticon-car-battery-1:before {
+  content: "\e906";
+}
+.flaticon-car-car:before {
+  content: "\e907";
+}
+.flaticon-car-car-1:before {
+  content: "\e908";
+}
+.flaticon-car-document:before {
+  content: "\e909";
+}
+.flaticon-car-car-2:before {
+  content: "\e90a";
+}
+.flaticon-car-engine:before {
+  content: "\e90b";
+}
+.flaticon-car-lift:before {
+  content: "\e90c";
+}
+.flaticon-car-maintenance:before {
+  content: "\e90d";
+}
+.flaticon-car-maintenance-1:before {
+  content: "\e90e";
+}
+.flaticon-car-maintenance-2:before {
+  content: "\e90f";
+}
+.flaticon-car-maintenance-3:before {
+  content: "\e910";
+}
+.flaticon-car-car-3:before {
+  content: "\e911";
+}
+.flaticon-car-car-4:before {
+  content: "\e912";
+}
+.flaticon-car-car-5:before {
+  content: "\e913";
+}
+.flaticon-car-car-6:before {
+  content: "\e914";
+}
+.flaticon-car-protection:before {
+  content: "\e915";
+}
+.flaticon-car-repair:before {
+  content: "\e916";
+}
+.flaticon-car-repair-1:before {
+  content: "\e917";
+}
+.flaticon-car-repair-2:before {
+  content: "\e918";
+}
+.flaticon-car-seat:before {
+  content: "\e919";
+}
+.flaticon-car-car-service:before {
+  content: "\e91a";
+}
+.flaticon-car-car-service-1:before {
+  content: "\e91b";
+}
+.flaticon-car-car-service-2:before {
+  content: "\e91c";
+}
+.flaticon-car-car-service-3:before {
+  content: "\e91d";
+}
+.flaticon-car-car-service-4:before {
+  content: "\e91e";
+}
+.flaticon-car-car-7:before {
+  content: "\e91f";
+}
+.flaticon-car-car-8:before {
+  content: "\e920";
+}
+.flaticon-car-car-9:before {
+  content: "\e921";
+}
+.flaticon-car-car-10:before {
+  content: "\e922";
+}
+.flaticon-car-chain:before {
+  content: "\e923";
+}
+.flaticon-car-car-11:before {
+  content: "\e924";
+}
+.flaticon-car-cogwheel:before {
+  content: "\e925";
+}
+.flaticon-car-compressor:before {
+  content: "\e926";
+}
+.flaticon-car-customer-service:before {
+  content: "\e927";
+}
+.flaticon-car-customer-service-1:before {
+  content: "\e928";
+}
+.flaticon-car-disc-brake:before {
+  content: "\e929";
+}
+.flaticon-car-document-1:before {
+  content: "\e92a";
+}
+.flaticon-car-document-2:before {
+  content: "\e92b";
+}
+.flaticon-car-engine-1:before {
+  content: "\e92c";
+}
+.flaticon-car-engine-2:before {
+  content: "\e92d";
+}
+.flaticon-car-mechanic:before {
+  content: "\e92e";
+}
+.flaticon-car-flat-tire:before {
+  content: "\e92f";
+}
+.flaticon-car-gear-stick:before {
+  content: "\e930";
+}
+.flaticon-car-hand:before {
+  content: "\e931";
+}
+.flaticon-car-hand-1:before {
+  content: "\e932";
+}
+.flaticon-car-hand-2:before {
+  content: "\e933";
+}
+.flaticon-car-horn:before {
+  content: "\e934";
+}
+.flaticon-car-jumper:before {
+  content: "\e935";
+}
+.flaticon-car-jumper-1:before {
+  content: "\e936";
+}
+.flaticon-car-maintenance-4:before {
+  content: "\e937";
+}
+.flaticon-car-maintenance-5:before {
+  content: "\e938";
+}
+.flaticon-car-mechanic-1:before {
+  content: "\e939";
+}
+.flaticon-car-mechanic-2:before {
+  content: "\e93a";
+}
+.flaticon-car-mechanic-3:before {
+  content: "\e93b";
+}
+.flaticon-car-mechanical:before {
+  content: "\e93c";
+}
+.flaticon-car-tow:before {
+  content: "\e93d";
+}
+.flaticon-car-maintenance-6:before {
+  content: "\e93e";
+}
+.flaticon-car-navigation:before {
+  content: "\e93f";
+}
+.flaticon-car-oil-funnel:before {
+  content: "\e940";
+}
+.flaticon-car-oil:before {
+  content: "\e941";
+}
+.flaticon-car-piston:before {
+  content: "\e942";
+}
+.flaticon-car-repair-3:before {
+  content: "\e943";
+}
+.flaticon-car-repair-4:before {
+  content: "\e944";
+}
+.flaticon-car-screw:before {
+  content: "\e945";
+}
+.flaticon-car-screwdriver:before {
+  content: "\e946";
+}
+.flaticon-car-search:before {
+  content: "\e947";
+}
+.flaticon-car-search-1:before {
+  content: "\e948";
+}
+.flaticon-car-car-service-5:before {
+  content: "\e949";
+}
+.flaticon-car-car-service-6:before {
+  content: "\e94a";
+}
+.flaticon-car-service-call:before {
+  content: "\e94b";
+}
+.flaticon-car-car-service-7:before {
+  content: "\e94c";
+}
+.flaticon-car-service:before {
+  content: "\e94d";
+}
+.flaticon-car-car-service-8:before {
+  content: "\e94e";
+}
+.flaticon-car-car-service-9:before {
+  content: "\e94f";
+}
+.flaticon-car-car-service-10:before {
+  content: "\e950";
+}
+.flaticon-car-car-service-11:before {
+  content: "\e951";
+}
+.flaticon-car-car-service-12:before {
+  content: "\e952";
+}
+.flaticon-car-sign:before {
+  content: "\e953";
+}
+.flaticon-car-speedometer:before {
+  content: "\e954";
+}
+.flaticon-car-steering:before {
+  content: "\e955";
+}
+.flaticon-car-suspension:before {
+  content: "\e956";
+}
+.flaticon-car-technician:before {
+  content: "\e957";
+}
+.flaticon-car-technician-1:before {
+  content: "\e958";
+}
+.flaticon-car-tool-box:before {
+  content: "\e959";
+}
+.flaticon-car-tool-box-1:before {
+  content: "\e95a";
+}
+.flaticon-car-maintenance-7:before {
+  content: "\e95b";
+}
+.flaticon-car-tow-truck:before {
+  content: "\e95c";
+}
+.flaticon-car-traffic-cone:before {
+  content: "\e95d";
+}
+.flaticon-car-traffic-cone-1:before {
+  content: "\e95e";
+}
+.flaticon-car-vehicle:before {
+  content: "\e95f";
+}
+.flaticon-car-car-12:before {
+  content: "\e960";
+}
+.flaticon-car-wheel:before {
+  content: "\e961";
+}
+.flaticon-car-wrench:before {
+  content: "\e962";
+}

@@ -1,0 +1,16 @@
+[
+    {
+        "id": "user_68ee06e4c40d15.41215828",
+        "full_name": "Zaki ganteng",
+        "email": "nicko.aviyuda@gmail.com",
+        "password_hash": "$2y$10$ghBHTHyA774Q7kpw4J9A9uDbllREpLi.0aJVbp5fGlGZs5tP8pEqG",
+        "created_at": "2025-10-14T10:16:36+02:00"
+    },
+    {
+        "id": "user_68ee074abd0795.74930718",
+        "full_name": "Nicko Aviyuda",
+        "email": "nicko.aviyuda.na@gmail.com",
+        "password_hash": "$2y$10$RXDJXX4efc4XQMLWwYTNguyY6ffqzu0YNz8vI82pGgI\/FGlINIlV.",
+        "created_at": "2025-10-14T10:18:18+02:00"
+    }
+]

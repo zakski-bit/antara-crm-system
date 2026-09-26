@@ -1,0 +1,132 @@
+/* Portfolio Showcase Floating Demo Bar */
+#portfolio-demo-bar {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 999999;
+  background: rgba(20, 24, 33, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 0 1px rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  color: #f1f5f9;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  max-width: 95vw;
+}
+
+#portfolio-demo-bar.collapsed {
+  transform: translateX(-50%) translateY(70%);
+  opacity: 0.85;
+}
+
+#portfolio-demo-bar:hover {
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.6);
+  border-color: rgba(215, 0, 6, 0.6);
+}
+
+.pdb-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 700;
+  color: #ffffff;
+  padding: 4px 10px;
+  background: #D70006;
+  border-radius: 20px;
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.pdb-badge-dot {
+  width: 7px;
+  height: 7px;
+  background: #22c55e;
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 0 8px #22c55e;
+}
+
+.pdb-links {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.pdb-links a {
+  color: #cbd5e1;
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.pdb-links a:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.pdb-links a.active {
+  color: #ffffff;
+  background: rgba(215, 0, 6, 0.25);
+  border: 1px solid rgba(215, 0, 6, 0.5);
+  font-weight: 600;
+}
+
+.pdb-divider {
+  width: 1px;
+  height: 18px;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.pdb-toggle {
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  font-size: 14px;
+}
+
+.pdb-toggle:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 768px) {
+  #portfolio-demo-bar {
+    border-radius: 16px;
+    padding: 6px 10px;
+    gap: 8px;
+    font-size: 12px;
+  }
+  .pdb-badge {
+    display: none;
+  }
+  .pdb-links a {
+    padding: 4px 8px;
+    font-size: 11px;
+  }
+}

@@ -1,0 +1,16 @@
+# Dependencies and builds
+.vercel/
+**/.vercel/
+node_modules/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# OS files
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Log files
+*.log

@@ -1,0 +1,252 @@
+/***
+
+==================================================================
+    Pricing Section
+==================================================================
+
+***/
+
+.pricing-section{
+    position: relative;
+    overflow: hidden;
+    padding: 120px 0 120px;
+    @include media-breakpoint-down(lg){
+        padding: 90px 0 110px;
+    }
+    @include media-breakpoint-down(md){
+        padding: 90px 0 50px;
+    }
+    &.style-two {
+        padding: 100px 0 120px;
+        @include media-breakpoint-down(md){
+            padding: 100px 0 50px;
+        }
+        .content-column {
+            .inner-column {
+                padding-right: 0;
+                padding-left: 30px;
+                padding-top: 40px;
+                @include media-breakpoint-down(xl){
+                    padding-left: 0;
+                    padding-top: 0;
+                    margin-bottom: 40px;
+                }
+                @include media-breakpoint-down(md){
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+    .bg-pattern-7 {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 225px;
+        height: 413px;
+        background-image: url(../images/pattern/pattern-2.png);
+    }
+    .shape-7 {
+        position: absolute;
+        top: auto;
+        bottom: 0;
+        left: 0;
+        width: 545px;
+        height: 346px;
+        background-image: url(../images/pattern/shape-7.png);
+        pointer-events: none;
+        opacity: 0.05;
+    }
+    .float-image {
+        right: 0;
+        bottom: 0;
+        position: absolute;
+    }
+    .bg-pattern-3 {
+        top: auto;
+        bottom: -15px;
+        left: 0;
+        width: 1010px;
+        height: 863px;
+        background-image: url(../images/pattern/bg-pattern-3.png);
+    }
+    .bg-pattern-8 {
+        top: auto;
+        bottom: -15px;
+        right: 0;
+        left: auto;
+        width: 610px;
+        height: 406px;
+        background-image: url(../images/pattern/bg-pattern-8.png);
+    }
+    .content-column {
+        position: relative;
+        .inner-column {
+            position: relative;
+            padding-right: 70px;
+            @include media-breakpoint-down(lg){
+                padding-right: 0;
+            }
+        }
+        .sec-title {
+            margin-bottom: 30px;
+        }
+        .info-btn {
+            &:hover {
+                .info-btn-two {
+                    .icon {
+                        transform: scaleX(-1);
+                    }
+                }
+            }
+        }
+        .info-btn-two {
+            .icon {
+                transform: scaleX(1);
+            }
+        }
+    }
+
+    .pricing-column{
+        position: relative;
+        .inner-column{
+            position: relative;
+            margin-left: -30px;
+            display: flex;
+            align-items: center;
+            @include media-breakpoint-down(xl){
+                margin-left: 0;
+            }
+            @include media-breakpoint-down(md){
+                margin-top: 50px;
+                display: block;
+            }
+        }
+    }
+}
+
+.pricing-block {
+    position: relative;
+    margin-bottom: 40px;
+    z-index: 2;
+    transition: all 300ms ease;
+    &.pull-left {
+        margin-left: 30px;
+        position: relative;
+        top: 60px;
+        @include media-breakpoint-down(md){
+            margin-left: 0;
+            top: 0;
+            float: none;
+        }
+    }
+    .inner-box {
+        background-color: var(--theme-color-black);
+        max-width: 340px;
+        padding: 58px 50px 60px;
+        position: relative;
+        text-align: center;
+        transition: all 300ms ease;
+        width: 100%;
+        @include media-breakpoint-down(md){
+            max-width: none;
+        }
+        @include media-breakpoint-down(sm){
+            padding: 58px 25px 60px;
+        }
+        &:hover{
+            .image img{
+                transform: rotate(180deg) scale(-1);
+            }
+        }
+    }
+    .icon {
+        background-clip: text;
+        color: var(--theme-color1);
+        display: block;
+        font-size: 72px;
+        line-height: 1em;
+        margin-bottom: 20px;
+        position: relative;
+    }
+    .price-box {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 12px;
+        position: relative;
+        .price {
+            color: #fff;
+            display: block;
+            font-size: 50px;
+            font-weight: 700;
+            line-height: 1em;
+            sup {
+                font-size: 60%;
+            }
+        }
+        .validaty {
+            position: relative;
+            font-size: 16px;
+            text-transform: uppercase;
+            color: #fff;
+            margin-left: 2px;
+            top: 3px;
+        }
+    }
+    .title {
+        position: relative;
+        display: block;
+        line-height: 1.2em;
+        color: var(--theme-color-light);
+        [data-tm-layout="dark"] & {
+          color: var(--headings-color);
+        }
+        margin-bottom: 30px;
+    }
+    .features {
+        position: relative;
+        margin-bottom: 40px;
+        li {
+            position: relative;
+            display: block;
+            font-size: 16px;
+            line-height: 26px;
+            color: #8c8f94;
+            font-weight: 400;
+            margin-bottom: 10px;
+        }
+    }
+    .btn-box {
+        position: relative;
+        .theme-btn2 {
+            background-color: var(--theme-color1);
+        }
+    }
+
+    &.style-two{
+        &:before {
+            background-color: #000;
+            opacity: 5%;
+            top: 193px;
+        }
+        .inner-box{
+            background-color: #fff;
+            [data-tm-layout="dark"] & {
+              background-color: var(--dark-color1);
+            }
+            box-shadow: 0 10px 60px rgba(0,0,0, .07);
+            .title {
+                color: var(--headings-color);
+            }
+        }
+        .price-box{
+            .validaty,
+            .price{
+                color: var(--headings-color);
+            }
+        }
+        &:hover{
+            top: 0;
+        }        
+    }
+}

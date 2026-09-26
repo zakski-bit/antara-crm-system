@@ -1,0 +1,32 @@
+Akun Administrator
+admin@antara.local
+Password: admin123
+
+Akun Pegawai
+pegawai@antara.local
+Password: pegawai123
+
+Pelanggan = Client
+Akun Pelanggan
+pelanggan@antara.local
+Password: pelanggan123
+
+Client Alpha
+alpha.client@antara.local
+Password: password
+
+Client Beta
+beta.client@antara.local
+Password: password
+
+Client Gamma
+gamma.client@antara.local
+Password: password
+
+Client Delta
+delta.client@antara.local
+Password: password
+
+Client Epsilon
+epsilon.client@antara.local
+Password: password

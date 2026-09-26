@@ -1,0 +1,91 @@
+							</div>
+						</div>
+					</div>
+					<a href="my-info.php" class="btn btn-menubar">
+						<i class="ti ti-settings-cog"></i>
+					</a>	
+				</div>
+
+				<!-- Horizontal Single -->
+				<div class="sidebar sidebar-horizontal" id="horizontal-single">
+					<div class="sidebar-menu">
+						<div class="main-menu">
+							<ul class="nav-menu">
+								<li class="menu-title">
+									<span>Main</span>
+								</li>
+								<li class="submenu">
+									<a href="#" class="<?php echo $dashboardDropdownActive ? 'active subdrop' : ''; ?>">
+										<i class="ti ti-smart-home"></i><span>Dashboard</span>
+										<span class="menu-arrow"></span>
+									</a>
+									<ul>
+										<li><a href="<?= htmlspecialchars($adminDashboardUrl, ENT_QUOTES, 'UTF-8'); ?>" class="<?php echo $adminDashboardActive ? 'active' : ''; ?>">Admin Dashboard</a></li>
+										<li><a href="<?= htmlspecialchars($employeeDashboardUrl, ENT_QUOTES, 'UTF-8'); ?>" class="<?php echo $employeeDashboardActive ? 'active' : ''; ?>">Employee Dashboard</a></li>
+										<li><a href="deals-dashboard.php" class="<?php echo ($page == 'deals-dashboard.php') ? 'active' : ''; ?>">Deals Dashboard</a></li>
+										<li><a href="leads-dashboard.php" class="<?php echo ($page == 'leads-dashboard.php') ? 'active' : ''; ?>">Leads Dashboard</a></li>
+									</ul>
+								</li>
+								<li class="submenu">
+									<a href="#"class=" <?php echo ($page == 'dashboard.php'||$page == 'companies.php'||$page == 'subscription.php'||$page == 'packages.php'||$page == 'domain.php'||$page == 'purchase-transaction.php') ? 'active subdrop' : ''; ?>">
+										<i class="ti ti-user-star"></i><span>Super Admin</span>
+										<span class="menu-arrow"></span>
+									</a>
+									<ul>
+										<li><a href="dashboard.php" class="<?php echo ($page == 'dashboard.php') ? 'active' : ''; ?>">Dashboard</a></li>
+										<li><a href="companies.php" class="<?php echo ($page == 'companies.php') ? 'active' : ''; ?>">Companies</a></li>
+										<li><a href="subscription.php" class="<?php echo ($page == 'subscription.php') ? 'active' : ''; ?>">Subscriptions</a></li>
+										<li><a href="packages.php" class="<?php echo ($page == 'packages.php') ? 'active' : ''; ?>">Packages</a></li>
+										<li><a href="domain.php" class="<?php echo ($page == 'domain.php') ? 'active' : ''; ?>">Domain</a></li>
+										<li><a href="purchase-transaction.php" class="<?php echo ($page == 'purchase-transaction.php') ? 'active' : ''; ?>">Purchase Transaction</a></li>
+									</ul>
+								</li>
+								<li class="submenu">
+									<a href="#"class=" <?php echo ($page == 'chat.php'||$page == 'calendar.php'
+							||$page == 'email.php'||$page == 'todo.php'||$page == 'notes.php'||$page == 'social-feed.php'||$page == 'invoices.php') ? 'active subdrop' : ''; ?>">
+										<i class="ti ti-layout-grid-add"></i><span>Applications</span>
+										<span class="menu-arrow"></span>
+									</a>
+									<ul>
+										<li class="<?php echo ($page == 'chat.php') ? 'active' : ''; ?>"><a href="chat.php" >Chat</a></li>
+										<li><a href="calendar.php" class="<?php echo ($page == 'calendar.php') ? 'active' : ''; ?>">Calendar</a></li>
+										<li><a href="/php/dashboard/email" class="<?php echo ($page == 'email.php') ? 'active' : ''; ?>">Email</a></li>
+										<li><a href="todo.php" class="<?php echo ($page == 'todo.php') ? 'active' : ''; ?>">To Do</a></li>
+										<li><a href="notes.php" class="<?php echo ($page == 'notes.php') ? 'active' : ''; ?>">Notes</a></li>
+										<li><a href="invoices.php" class="<?php echo ($page == 'invoices.php') ? 'active' : ''; ?>">Invoices</a></li>
+									</ul>
+								</li>
+								<li class="submenu">
+									<a href="#" class=" <?php echo ($page == 'layout-horizontal.php'||$page == 'layout-detached.php'||$page == 'layout-modern.php'||$page == 'layout-hovered.php'||$page == 'layout-horizontal-single.php'||$page == 'layout-horizontal-overlay.php'||$page == 'layout-horizontal-box.php'||$page == 'layout-horizontal-sidemenu.php'||$page == 'layout-vertical-transparent.php'||$page == 'layout-without-header.php'||$page == 'layout-vertical-transparent.php'||$page == 'layout-rtl.php'||$page == 'layout-dark.php') ? 'active subdrop' : ''; ?>">
+										<i class="ti ti-layout-board-split"></i><span>Layouts</span>
+										<span class="menu-arrow"></span>
+									</a>
+									<ul>
+										<li>
+											<a href="layout-horizontal.php" class="<?php echo ($page == 'layout-horizontal.php') ? 'active' : ''; ?>">
+												<span>Horizontal</span>
+											</a>
+										</li>
+										<li>
+											<a href="layout-detached.php" class="<?php echo ($page == 'layout-detached.php') ? 'active' : ''; ?>">
+												<span>Detached</span>
+											</a>
+										</li>
+										<li>
+											<a href="layout-modern.php" class="<?php echo ($page == 'layout-modern.php') ? 'active' : ''; ?>">
+												<span>Modern</span>
+											</a>
+										</li>
+										<li>
+											<a href="layout-hovered.php" class="<?php echo ($page == 'layout-hovered.php') ? 'active' : ''; ?>">
+												<span>Hovered</span>
+											</a>
+										</li>
+										<li>
+											<a href="layout-box.php" class="<?php echo ($page == 'layout-box.php') ? 'active' : ''; ?>">
+												<span>Boxed</span>
+											</a>
+										</li>
+										<li>
+											<a href="layout-horizontal-single.php" class="<?php echo ($page == 'layout-horizontal-single.php') ? 'active' : ''; ?>">
+												<span>Horizontal Single</span>

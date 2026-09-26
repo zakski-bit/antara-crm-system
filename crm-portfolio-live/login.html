@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+	<meta charset="utf-8">
+	<title>ANTARA - Masuk & OTP Simulasi | Portfolio Demo</title>
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+	<link rel="icon" type="image/x-icon" href="favicon.ico">
+	<link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<link rel="stylesheet" href="demo-bar/demo-bar.css">
+    <style>
+        body, .page-wrapper {
+            background-color: #000;
+        }
+        .login-section {
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            overflow: hidden;
+            padding: 80px 0;
+            min-height: 100vh;
+            background-color: #000;
+            display: flex;
+            align-items: center;
+        }
+        .login-section__video-bg {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            z-index: 0;
+            background-color: #000;
+        }
+        .login-section__video-bg video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+            filter: brightness(0.35);
+        }
+        .login-section__content {
+            position: relative;
+            z-index: 2;
+        }
+        .auth-info-box {
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            padding: 40px;
+            border-radius: 16px;
+            color: #fff;
+        }
+        .auth-card {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 40px;
+            border-radius: 16px;
+            color: #fff;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+        .auth-card h3, .auth-card h4 {
+            color: #fff;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+        .auth-card label {
+            color: #cbd5e1;
+            font-size: 13px;
+            margin-bottom: 6px;
+            display: block;
+        }
+        .auth-card .form-control,
+        .auth-card input[type="text"],
+        .auth-card input[type="email"],
+        .auth-card input[type="password"] {
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #fff;
+            border-radius: 8px;
+            padding: 12px 16px;
+            width: 100%;
+            margin-bottom: 16px;
+            outline: none;
+            transition: all 0.2s;
+        }
+        .auth-card input:focus {
+            border-color: #D70006;
+            box-shadow: 0 0 10px rgba(215, 0, 6, 0.4);
+            background: rgba(255, 255, 255, 0.12);
+        }
+        .demo-selector-box {
+            background: rgba(215, 0, 6, 0.12);
+            border: 1px solid rgba(215, 0, 6, 0.4);
+            border-radius: 10px;
+            padding: 14px;
+            margin-bottom: 24px;
+        }
+        .demo-selector-title {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #f87171;
+            font-weight: 700;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .demo-btn-group {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .demo-pill-btn {
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #fff;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 500;
+        }
+        .demo-pill-btn:hover {
+            background: #D70006;
+            border-color: #D70006;
+            color: #fff;
+        }
+        /* OTP Modal */
+        .otp-modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(8px);
+            z-index: 99999;
+            align-items: center;
+            justify-content: center;
+        }
+        .otp-modal-box {
+            background: #1a1f2c;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            padding: 32px;
+            width: 100%;
+            max-width: 440px;
+            text-align: center;
+            color: #fff;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.8);
+            animation: modalFadeIn 0.3s ease;
+        }
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .otp-input-group {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin: 24px 0;
+        }
+        .otp-box-digit {
+            width: 46px;
+            height: 52px;
+            font-size: 24px;
+            font-weight: 700;
+            text-align: center;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            background: rgba(255, 255, 255, 0.08);
+            color: #fff;
+            outline: none;
+        }
+        .otp-box-digit:focus {
+            border-color: #D70006;
+            box-shadow: 0 0 10px rgba(215, 0, 6, 0.5);
+        }
+        .preloader { display: none !important; opacity: 0 !important; visibility: hidden !important; pointer-events: none !important; }
+    </style>
+</head>
+<body>
+<div class="page-wrapper">
+
+	<!-- Header -->
+	<header class="main-header header-style-eight">
+		<div class="header-lower">
+			<div class="inner-container"> 
+				<div class="main-box">
+					<div class="logo-box">
+						<div class="logo">
+							<a href="index.html"><img src="images/antaradark1.png" alt="ANTARA" class="antara-logo"></a>
+						</div>
+					</div>
+					<div class="nav-outer">
+						<nav class="nav main-menu">
+							<ul class="navigation clearfix">
+								<li><a href="index.html">← Kembali ke Beranda</a></li>
+							</ul>
+						</nav>
+					</div>
+					<div class="outer-box"> 
+						<a href="tel:+62213842591" class="info-btn-two">
+							<i class="icon fa fa-phone"></i>
+							<small>Bantuan Teknis</small>
+							<strong>021-3842591</strong>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+
+    <section class="login-section">
+        <div class="login-section__video-bg">
+            <video autoplay muted loop playsinline preload="auto">
+                <source src="videos/warni_1min.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="auto-container login-section__content">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6">
+                    <div class="auth-info-box">
+                        <span class="sub-title text-danger fw-bold text-uppercase">Jurnalisme Terpercaya</span>
+                        <h2 class="title mt-2 text-white">Akses Eksklusif Portal & CRM ANTARA</h2>
+                        <p class="text-white-50 mt-3">Sistem terintegrasi untuk pelanggan konten, mitra media internasional, dan staf redaksi LKBN ANTARA.</p>
+                        <ul class="list-unstyled mt-4 text-white-50">
+                            <li class="mb-3 d-flex align-items-center gap-2">
+                                <i class="fa fa-check-circle text-danger fs-5"></i> Distribusi real-time artikel, foto, dan video berlisensi.
+                            </li>
+                            <li class="mb-3 d-flex align-items-center gap-2">
+                                <i class="fa fa-check-circle text-danger fs-5"></i> Manajemen kontrak langganan, invoice, dan pelunasan kemitraan.
+                            </li>
+                            <li class="mb-3 d-flex align-items-center gap-2">
+                                <i class="fa fa-check-circle text-danger fs-5"></i> Autentikasi aman berbasis OTP (One-Time Password) ke email.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="auth-card">
+                        <div class="demo-selector-box">
+                            <div class="demo-selector-title">
+                                <i class="fa fa-bolt"></i> Portofolio Quick Access (Pilih Role):
+                            </div>
+                            <div class="demo-btn-group">
+                                <button type="button" class="demo-pill-btn" onclick="quickFill('admin@antara.local', 'admin123', 'admin')">
+                                    🛡️ Admin Demo (IT Division)
+                                </button>
+                                <button type="button" class="demo-pill-btn" onclick="quickFill('pelanggan@antara.local', 'pelanggan123', 'customer')">
+                                    👤 Pelanggan Demo (Mitra)
+                                </button>
+                            </div>
+                        </div>
+
+                        <h3>Masuk ke akun Anda</h3>
+                        <p class="text-white-50 small mb-4">Gunakan email demo di atas atau masukkan email Anda untuk mencoba simulasi OTP.</p>
+
+                        <form id="loginForm" onsubmit="handleLoginSubmit(event)">
+                            <div>
+                                <label>Alamat Email</label>
+                                <input type="email" id="loginEmail" placeholder="contoh: admin@antara.local" required value="admin@antara.local">
+                            </div>
+                            <div>
+                                <label>Kata Sandi</label>
+                                <input type="password" id="loginPassword" placeholder="Masukkan kata sandi" required value="admin123">
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center mb-4 text-white-50 small">
+                                <div>
+                                    <input type="checkbox" id="rememberMe" checked>
+                                    <label for="rememberMe" class="d-inline ms-1">Ingat saya</label>
+                                </div>
+                                <a href="javascript:void(0)" class="text-white-50 text-decoration-underline" onclick="alert('Pada sistem live, fitur ini akan mengirim tautan pemulihan sandi dengan verifikasi OTP.')">Lupa kata sandi?</a>
+                            </div>
+                            <button class="theme-btn btn-style-one w-100 py-3" type="submit" id="btnSubmitLogin">
+                                <span class="btn-title">Masuk Sekarang</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OTP Modal Popup Simulation -->
+    <div class="otp-modal-overlay" id="otpModal">
+        <div class="otp-modal-box">
+            <div class="fs-1 mb-2">📩</div>
+            <h4>Verifikasi Kode OTP</h4>
+            <p class="text-white-50 small">Kami telah mensimulasikan pengiriman kode 6-digit ke email: <br><strong class="text-white" id="otpTargetEmail">email@antara.local</strong></p>
+            
+            <div class="alert alert-info py-2 small bg-opacity-25 bg-info border-info text-info">
+                <strong>Mode Demo Portofolio:</strong> Ketik sembarang 6 angka (contoh: <code>123456</code>) lalu klik Verifikasi.
+            </div>
+
+            <div class="otp-input-group">
+                <input type="text" maxlength="1" class="otp-box-digit" value="1" oninput="moveNext(this, 1)">
+                <input type="text" maxlength="1" class="otp-box-digit" value="2" oninput="moveNext(this, 2)">
+                <input type="text" maxlength="1" class="otp-box-digit" value="3" oninput="moveNext(this, 3)">
+                <input type="text" maxlength="1" class="otp-box-digit" value="4" oninput="moveNext(this, 4)">
+                <input type="text" maxlength="1" class="otp-box-digit" value="5" oninput="moveNext(this, 5)">
+                <input type="text" maxlength="1" class="otp-box-digit" value="6" oninput="moveNext(this, 6)">
+            </div>
+
+            <button class="theme-btn btn-style-one w-100 py-2 mb-2" onclick="verifyOtp()">
+                <span class="btn-title">Verifikasi & Masuk ke Dashboard</span>
+            </button>
+            <button class="btn btn-link text-white-50 btn-sm text-decoration-none" onclick="closeOtp()">Batal</button>
+        </div>
+    </div>
+
+</div>
+
+<script src="js/jquery.js"></script> 
+<script src="js/bootstrap.min.js"></script>
+<script src="js/script.js"></script>
+<script src="demo-bar/demo-bar.js"></script>
+<script>
+let currentTargetRole = 'admin';
+
+function quickFill(email, pass, role) {
+    document.getElementById('loginEmail').value = email;
+    document.getElementById('loginPassword').value = pass;
+    currentTargetRole = role;
+    
+    // Auto submit to make demo quick and pleasant
+    handleLoginSubmit(new Event('submit'));
+}
+
+function handleLoginSubmit(e) {
+    if (e && e.preventDefault) e.preventDefault();
+    const email = document.getElementById('loginEmail').value.trim();
+    
+    if (email.includes('pelanggan') || email.includes('customer') || email.includes('client')) {
+        currentTargetRole = 'customer';
+    } else {
+        currentTargetRole = 'admin';
+    }
+
+    document.getElementById('otpTargetEmail').innerText = email;
+    document.getElementById('otpModal').style.display = 'flex';
+}
+
+function moveNext(input, index) {
+    if (input.value.length === 1) {
+        const inputs = document.querySelectorAll('.otp-box-digit');
+        if (inputs[index]) inputs[index].focus();
+    }
+}
+
+function closeOtp() {
+    document.getElementById('otpModal').style.display = 'none';
+}
+
+function verifyOtp() {
+    const btn = event.currentTarget;
+    btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Memverifikasi...';
+    setTimeout(() => {
+        if (currentTargetRole === 'customer') {
+            window.location.href = 'admin/customer.html';
+        } else {
+            window.location.href = 'admin/index.html';
+        }
+    }, 600);
+}
+</script>
+</body>
+</html>

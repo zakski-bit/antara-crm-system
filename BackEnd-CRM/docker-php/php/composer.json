@@ -1,0 +1,16 @@
+{
+    "name": "antara/news-portal",
+    "description": "Backend scaffold for Antara News Portal",
+    "type": "project",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "scripts": {
+        "lint": "php -l",
+        "start": "php -S localhost:8000 -t public"
+    }
+}
+

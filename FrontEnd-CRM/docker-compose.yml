@@ -1,0 +1,16 @@
+services:
+  web:
+    build: .
+    ports:
+      - "8082:80"
+    volumes:
+      # Mount source code for live development (changes reflect instantly)
+      - ./autoexpert-php:/var/www/html
+    restart: unless-stopped
+    networks:
+      - backend_crm
+
+networks:
+  backend_crm:
+    external: true
+    name: docker-php_backend

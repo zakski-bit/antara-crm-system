@@ -1,0 +1,7 @@
+{
+  "name": "smarthr",
+  "scripts": {
+    "sass": "sass assets/scss/main.scss:assets/css/style.css --style=compressed",
+    "sass:watch": "sass assets/scss/main.scss:assets/css/style.css --style=compressed --watch"
+  }
+} 

@@ -1,0 +1,124 @@
+/*** 
+
+====================================================================
+Section Title
+====================================================================
+
+***/
+
+.sec-title {
+  position: relative;
+  margin-bottom: 40px;
+  .sub-title {
+    position: relative;
+    top: -8px;
+    padding-left: 30px;
+    font-size: var(--sec-title-subtitle-font-size);
+    color: var(--sec-title-subtitle-color);
+    line-height: var(--sec-title-subtitle-line-height);
+    font-weight: var(--sec-title-subtitle-font-weight);
+    font-family: var(--sec-title-subtitle-font-family);;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    &:before {
+      position: absolute;
+      left: 0;
+      top: -3px;
+      height: 24px;
+      width: 24px;
+      background-image: url(../images/icons/titleantara.png);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+      content: "";
+    }
+  }
+  h1 {
+    position: relative;
+    font-size: 60px;
+    line-height: 1em;
+    color: var(--sec-title-color);
+    font-family: var(--sec-title-font-family);
+    font-weight: var(--sec-title-font-weight);
+  }
+  h2 {
+    position: relative;
+    font-size: var(--sec-title-font-size);
+    color: var(--sec-title-color);
+    font-family: var(--sec-title-font-family);
+    font-weight: var(--sec-title-font-weight);
+    letter-spacing: .01em;
+    margin-top: -5px;
+    margin-bottom: 0;
+    @include media-breakpoint-down(xl){
+      font-size: 42px;
+    }
+    @include media-breakpoint-down(md){
+      font-size: 32px;
+      br {
+        display: none;
+      }
+    }
+  }
+  .text {
+    margin-top: 30px;
+  }
+}
+
+.sec-title.light{
+  h3,
+  h2,
+  h1{
+    color: #fff;
+  }
+  .text{
+    color: #fff;
+  }
+  .sub-title{
+    color: var(--theme-color1);
+  }
+}
+
+.titleantara{
+  align-items: flex-start;
+  display: inline-flex !important;
+  flex-direction: column;
+  gap: 8px;
+  justify-content: flex-start;
+  white-space: nowrap;
+  padding-left: 0 !important;
+  text-align: left;
+  &::before{
+    content: none !important;
+  }
+  > .titleantara__logo{
+    flex-shrink: 0;
+    height: 24px;
+    width: 24px;
+    margin: 0;
+    object-fit: contain;
+  }
+}
+.titleantara--inline{
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+
+.sec-title.light{
+  h3,
+  h2,
+  h1{
+    color: #fff;
+  }
+  .text{
+    color: #fff;
+  }
+  .sub-title.light{
+    color: #fff;
+    &:before {
+      content: none;
+    }
+  }
+}

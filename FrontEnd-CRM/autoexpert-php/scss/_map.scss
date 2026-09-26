@@ -1,0 +1,33 @@
+/*** 
+
+====================================================================
+    Map Section
+====================================================================
+
+***/
+
+.map-section{
+    position: relative;
+    z-index: 1;
+    .map{
+        position: relative;
+        height: 350px;
+        width: 100%;
+        display: block;
+    }
+    .branches-outer{
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+    }
+
+    &.alternate{
+        .map{
+            height: 350px;
+        }
+        &.pull-up{
+            margin-top: -45px;
+        }
+    }
+}
