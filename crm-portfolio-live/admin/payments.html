@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+	<title>ANTARA CRM - Riwayat Transaksi & Pembayaran</title>
+	
+	<!-- Favicon -->
+	<link rel="icon" type="image/x-icon" href="../favicon.ico">
+	<link rel="icon" type="image/png" sizes="32x32" href="../favicon.png">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/plugins/icons/feather/feather.css">
+	<link rel="stylesheet" href="assets/plugins/tabler-icons/tabler-icons.css">
+	<link rel="stylesheet" href="assets/plugins/fontawesome/css/fontawesome.min.css">
+	<link rel="stylesheet" href="assets/plugins/fontawesome/css/all.min.css">
+	<link rel="stylesheet" href="assets/plugins/select2/css/select2.min.css">
+	<link rel="stylesheet" href="assets/plugins/daterangepicker/daterangepicker.css">
+	<link rel="stylesheet" href="assets/css/dataTables.bootstrap5.min.css">
+	<link rel="stylesheet" href="assets/css/style.css">
+	<link rel="stylesheet" href="../demo-bar/demo-bar.css">
+
+	<!-- Google Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+	<style>
+		:root {
+			--primary: #D70006;
+			--primary-hover: #B50005;
+			--primary-light: rgba(215, 0, 6, 0.1);
+			--secondary: #24201F;
+			--dark: #24201F;
+			--body-font: 'Outfit', sans-serif;
+			--title-font: 'Roboto', sans-serif;
+		}
+		body {
+			font-family: 'Outfit', sans-serif !important;
+		}
+		h1, h2, h3, h4, h5, h6, .page-header h3, .page-header h4 {
+			font-family: 'Roboto', sans-serif !important;
+		}
+		.sidebar {
+			background-color: #1a1816 !important;
+		}
+		.sidebar .sidebar-menu>ul>li a.active, .sidebar .sidebar-menu>ul>li a:hover {
+			color: #fff !important;
+			background: rgba(215, 0, 6, 0.15) !important;
+		}
+		.sidebar .sidebar-menu>ul>li a.active i, .sidebar .sidebar-menu>ul>li a:hover i {
+			color: #D70006 !important;
+		}
+		.sidebar-logo {
+			background-color: #24201F !important;
+			border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+		}
+		.header {
+			background: #2F3E56 !important;
+			border-bottom: 2px solid #233046 !important;
+		}
+		.header-welcome-message {
+			color: #ffffff;
+			font-weight: 600;
+			font-size: 14px;
+		}
+		.btn-primary {
+			background-color: #D70006 !important;
+			border-color: #D70006 !important;
+		}
+		.btn-primary:hover {
+			background-color: #B50005 !important;
+			border-color: #B50005 !important;
+		}
+		.badge-antara {
+			background-color: rgba(215, 0, 6, 0.12);
+			color: #D70006;
+			font-weight: 600;
+		}
+		.card {
+			border-radius: 8px;
+		}
+		.sparkline {
+			font-size: 11px;
+			color: #64748b;
+			font-weight: 600;
+		}
+		.nav-pills .nav-link.active {
+			background-color: #D70006 !important;
+		}
+	</style>
+</head>
+<body>
+<div class="main-wrapper">
+
+
+	<!-- Header -->
+	<div class="header">
+		<div class="main-header">
+			<div class="header-left">
+				<a href="index.html" class="logo">
+					<img src="assets/img/logo-antaradark.png" alt="Logo Antara" style="height:36px;">
+				</a>
+			</div>
+
+			<a id="mobile_btn" class="mobile_btn" href="#sidebar">
+				<span class="bar-icon">
+					<span></span><span></span><span></span>
+				</span>
+			</a>
+
+			<div class="header-user">
+				<div class="nav user-menu nav-list">
+					<div class="me-auto d-flex align-items-center" id="header-search">
+						<a id="toggle_btn" href="javascript:void(0);" class="btn btn-menubar me-1 text-white">
+							<i class="ti ti-arrow-bar-to-left"></i>
+						</a>
+						<div class="header-welcome-message me-2">
+							Selamat Datang di CRM ANTARA <span style="font-style:italic; font-weight:normal; opacity:0.85;">Information System</span>
+						</div>
+					</div>
+
+					<ul class="nav user-menu">
+						<li class="nav-item dropdown me-2">
+							<a href="javascript:void(0);" class="btn btn-menubar text-white position-relative" data-bs-toggle="dropdown">
+								<i class="ti ti-bell"></i>
+								<span class="badge bg-danger rounded-pill position-absolute top-0 start-100 translate-middle" style="font-size:10px;">3</span>
+							</a>
+							<div class="dropdown-menu dropdown-menu-end p-3 shadow" style="min-width: 280px;">
+								<h6 class="fw-bold mb-2">Notifikasi Sistem</h6>
+								<div class="list-group list-group-flush fs-12">
+									<a href="todo.html" class="list-group-item list-group-item-action px-0 py-2">
+										<i class="ti ti-alert-circle text-danger me-1"></i> 1 Tiket Kritis Memerlukan Tindakan
+									</a>
+									<a href="invoices.html" class="list-group-item list-group-item-action px-0 py-2">
+										<i class="ti ti-file-invoice text-warning me-1"></i> 1 Tagihan Mendekati Jatuh Tempo
+									</a>
+									<a href="email.html" class="list-group-item list-group-item-action px-0 py-2">
+										<i class="ti ti-mail text-primary me-1"></i> 2 Pesan Korespondensi Baru
+									</a>
+								</div>
+							</div>
+						</li>
+						<li class="nav-item dropdown has-arrow main-drop">
+							<a href="javascript:void(0);" class="dropdown-toggle nav-link userset d-flex align-items-center" data-bs-toggle="dropdown">
+								<span class="user-img me-2">
+									<img src="assets/img/profiles/avatar-02.jpg" alt="User" class="rounded-circle" style="width:34px; height:34px;">
+								</span>
+								<div class="user-info text-start d-none d-md-block text-white">
+									<h6 class="mb-0 fs-13 text-white fw-bold">Redaksi Antara</h6>
+									<span class="fs-11 text-white-50">Superadministrator / IT Lead</span>
+								</div>
+							</a>
+							<div class="dropdown-menu menu-drop-user dropdown-menu-end shadow">
+								<div class="profilename p-3 border-bottom">
+									<h6 class="fs-13 fw-bold mb-0">Redaksi Antara</h6>
+									<p class="fs-11 text-muted mb-0">Superadministrator / IT Lead</p>
+								</div>
+								<a class="dropdown-item" href="index.html"><i class="ti ti-layout-dashboard me-2"></i>Dashboard Admin</a>
+								<a class="dropdown-item" href="customer.html"><i class="ti ti-users me-2"></i>Portal Pelanggan</a>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item text-danger" href="../login.html"><i class="ti ti-logout me-2"></i>Keluar (Logout)</a>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- Sidebar -->
+	<div class="sidebar" id="sidebar">
+		<div class="sidebar-logo p-3 d-flex align-items-center justify-content-between">
+			<a href="index.html">
+				<img src="assets/img/logo-antaradark.png" alt="Logo" style="height:32px;">
+			</a>
+		</div>
+
+		<div class="sidebar-inner slimscroll">
+			<div id="sidebar-menu" class="sidebar-menu">
+				<ul>
+					<li class="menu-title"><span>NAVIGASI UTAMA</span></li>
+					<li>
+						<a href="index.html" class="">
+							<i class="ti ti-smart-home"></i><span>Dashboard Admin</span>
+						</a>
+					</li>
+					<li>
+						<a href="customer.html" class="">
+							<i class="ti ti-users"></i><span>Portal Pelanggan/Mitra</span>
+						</a>
+					</li>
+
+					<li class="menu-title"><span>APLIKASI CRM</span></li>
+					<li>
+						<a href="email.html" class="">
+							<i class="ti ti-mail"></i><span>Korespondensi</span><span class="badge bg-danger ms-auto">2</span>
+						</a>
+					</li>
+					<li>
+						<a href="todo.html" class="">
+							<i class="ti ti-checkup-list"></i><span>Tiket Support & To-Do</span>
+						</a>
+					</li>
+
+					<li class="menu-title"><span>KONTEN & RELASI</span></li>
+					<li>
+						<a href="mitra.html" class="">
+							<i class="ti ti-world"></i><span>Mitra & Korporasi</span>
+						</a>
+					</li>
+					<li>
+						<a href="produk-antara.html" class="">
+							<i class="ti ti-packages"></i><span>Katalog Produk ANTARA</span>
+						</a>
+					</li>
+
+					<li class="menu-title"><span>BILLING & TRANSAKSI</span></li>
+					<li>
+						<a href="invoices.html" class="">
+							<i class="ti ti-file-invoice"></i><span>Tagihan / Invoices</span><span class="badge bg-warning ms-auto text-dark">4</span>
+						</a>
+					</li>
+					<li>
+						<a href="payments.html" class="active">
+							<i class="ti ti-credit-card"></i><span>Riwayat Pembayaran</span>
+						</a>
+					</li>
+
+					<li class="menu-title"><span>DEMO PORTOFOLIO</span></li>
+					<li>
+						<a href="../index.html"><i class="ti ti-arrow-back-up"></i><span>Kembali ke Beranda</span></a>
+					</li>
+					<li>
+						<a href="../login.html"><i class="ti ti-lock"></i><span>Halaman Login / OTP</span></a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="page-wrapper">
+		<div class="content container-fluid">
+
+			<!-- Page Header -->
+			<div class="d-md-flex d-block align-items-center justify-content-between page-breadcrumb mb-3">
+				<div class="my-auto mb-2">
+					<h2 class="mb-1">Riwayat Transaksi &amp; Pembayaran Klien</h2>
+					<nav>
+						<ol class="breadcrumb mb-0">
+							<li class="breadcrumb-item"><a href="index.html"><i class="ti ti-smart-home"></i></a></li>
+							<li class="breadcrumb-item">Billing &amp; Transaksi</li>
+							<li class="breadcrumb-item active" aria-current="page">Riwayat Pembayaran</li>
+						</ol>
+					</nav>
+				</div>
+				<div class="d-flex my-xl-auto right-content align-items-center flex-wrap gap-2">
+					<a href="invoices.html" class="btn btn-outline-danger btn-sm"><i class="ti ti-file-invoice me-1"></i>Ke Menu Tagihan</a>
+				</div>
+			</div>
+
+			<!-- Stats Row -->
+			<div class="row g-3 mb-4">
+				<div class="col-xl-3 col-sm-6">
+					<div class="card shadow-sm border-0 h-100">
+						<div class="card-body">
+							<span class="text-muted fs-12">Total Pembayaran Masuk</span>
+							<h3 class="fw-bold mb-1 text-success">Rp 130.000.000</h3>
+							<span class="badge bg-success bg-opacity-10 text-success">5 Transaksi Terdata</span>
+						</div>
+					</div>
+				</div>
+				<div class="col-xl-3 col-sm-6">
+					<div class="card shadow-sm border-0 h-100">
+						<div class="card-body">
+							<span class="text-muted fs-12">Menunggu Verifikasi Bank</span>
+							<h3 class="fw-bold mb-1 text-warning">Rp 36.500.000</h3>
+							<span class="badge bg-warning bg-opacity-10 text-warning">2 Perlu Review</span>
+						</div>
+					</div>
+				</div>
+				<div class="col-xl-3 col-sm-6">
+					<div class="card shadow-sm border-0 h-100">
+						<div class="card-body">
+							<span class="text-muted fs-12">Metode Terpopuler</span>
+							<h3 class="fw-bold mb-1">BCA &amp; Mandiri</h3>
+							<span class="text-muted fs-11">● 80% Saluran Domestik</span>
+						</div>
+					</div>
+				</div>
+				<div class="col-xl-3 col-sm-6">
+					<div class="card shadow-sm border-0 h-100">
+						<div class="card-body">
+							<span class="text-muted fs-12">Waktu Rekonsiliasi Rata-rata</span>
+							<h3 class="fw-bold mb-1">12 Menit</h3>
+							<span class="text-success fs-11">● Otomatisasi Host-to-Host</span>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Table Card -->
+			<div class="card shadow-sm border-0">
+				<div class="card-header bg-transparent border-bottom">
+					<h5 class="card-title mb-0 fw-bold">Daftar Log Transaksi Pembayaran</h5>
+				</div>
+				<div class="card-body">
+					<div class="table-responsive">
+						<table class="table table-hover align-middle datatable">
+							<thead class="table-light">
+								<tr>
+									<th>Kode Transaksi</th>
+									<th>Ref Invoice</th>
+									<th>Mitra Pembayar</th>
+									<th>Kanal / Metode</th>
+									<th>Nominal</th>
+									<th>Tanggal Bayar</th>
+									<th>Status Verifikasi</th>
+									<th>Aksi</th>
+								</tr>
+							</thead>
+							<tbody>
+								
+		<tr>
+			<td><strong class="text-primary">PAY-20251127-01</strong></td>
+			<td><a href="invoices.html" class="fw-semibold">INV-2025-1212</a></td>
+			<td>
+				<h6 class="mb-0 fs-13 fw-bold">PT Media Nusantara Prima</h6>
+				<span class="text-muted fs-11">Transfer Bank</span>
+			</td>
+			<td><i class="ti ti-building-bank me-1 text-secondary"></i>Bank BCA Virtual Account</td>
+			<td><strong>Rp 28,500,000</strong></td>
+			<td>28 Nov 2025</td>
+			<td><span class="badge bg-success">Terverifikasi</span></td>
+			<td>
+				<button class="btn btn-sm btn-light" onclick="alert('Bukti Pembayaran PAY-20251127-01\nJumlah: Rp 28,500,000\nMetode: Bank BCA Virtual Account\nStatus: Terverifikasi')"><i class="ti ti-receipt"></i> Bukti</button>
+			</td>
+		</tr>
+        
+		<tr>
+			<td><strong class="text-primary">PAY-20251128-04</strong></td>
+			<td><a href="invoices.html" class="fw-semibold">INV-2025-11-2</a></td>
+			<td>
+				<h6 class="mb-0 fs-13 fw-bold">PT Cuan Media Kreatif</h6>
+				<span class="text-muted fs-11">Direct Transfer</span>
+			</td>
+			<td><i class="ti ti-building-bank me-1 text-secondary"></i>Bank Mandiri Corporate</td>
+			<td><strong>Rp 20,000,000</strong></td>
+			<td>28 Nov 2025</td>
+			<td><span class="badge bg-success">Terverifikasi</span></td>
+			<td>
+				<button class="btn btn-sm btn-light" onclick="alert('Bukti Pembayaran PAY-20251128-04\nJumlah: Rp 20,000,000\nMetode: Bank Mandiri Corporate\nStatus: Terverifikasi')"><i class="ti ti-receipt"></i> Bukti</button>
+			</td>
+		</tr>
+        
+		<tr>
+			<td><strong class="text-primary">PAY-20260106-09</strong></td>
+			<td><a href="invoices.html" class="fw-semibold">INV-2026-0041</a></td>
+			<td>
+				<h6 class="mb-0 fs-13 fw-bold">Bloomberg L.P. Partner</h6>
+				<span class="text-muted fs-11">International Wire</span>
+			</td>
+			<td><i class="ti ti-building-bank me-1 text-secondary"></i>SWIFT Wire Transfer</td>
+			<td><strong>Rp 45,000,000</strong></td>
+			<td>06 Jan 2026</td>
+			<td><span class="badge bg-success">Terverifikasi</span></td>
+			<td>
+				<button class="btn btn-sm btn-light" onclick="alert('Bukti Pembayaran PAY-20260106-09\nJumlah: Rp 45,000,000\nMetode: SWIFT Wire Transfer\nStatus: Terverifikasi')"><i class="ti ti-receipt"></i> Bukti</button>
+			</td>
+		</tr>
+        
+		<tr>
+			<td><strong class="text-primary">PAY-20260114-12</strong></td>
+			<td><a href="invoices.html" class="fw-semibold">INV-20251203-C775</a></td>
+			<td>
+				<h6 class="mb-0 fs-13 fw-bold">PT Alpha Televisi Indonesia</h6>
+				<span class="text-muted fs-11">VA Payment</span>
+			</td>
+			<td><i class="ti ti-building-bank me-1 text-secondary"></i>Bank BNI Virtual Account</td>
+			<td><strong>Rp 20,000,000</strong></td>
+			<td>14 Jan 2026</td>
+			<td><span class="badge bg-warning text-dark">Menunggu Verifikasi</span></td>
+			<td>
+				<button class="btn btn-sm btn-light" onclick="alert('Bukti Pembayaran PAY-20260114-12\nJumlah: Rp 20,000,000\nMetode: Bank BNI Virtual Account\nStatus: Menunggu Verifikasi')"><i class="ti ti-receipt"></i> Bukti</button>
+			</td>
+		</tr>
+        
+		<tr>
+			<td><strong class="text-primary">PAY-20260118-15</strong></td>
+			<td><a href="invoices.html" class="fw-semibold">INV-2026-0089</a></td>
+			<td>
+				<h6 class="mb-0 fs-13 fw-bold">Finsoft Solusi Digital</h6>
+				<span class="text-muted fs-11">QRIS B2B</span>
+			</td>
+			<td><i class="ti ti-building-bank me-1 text-secondary"></i>QRIS Corporate Dinamis</td>
+			<td><strong>Rp 16,500,000</strong></td>
+			<td>18 Jan 2026</td>
+			<td><span class="badge bg-warning text-dark">Menunggu Verifikasi</span></td>
+			<td>
+				<button class="btn btn-sm btn-light" onclick="alert('Bukti Pembayaran PAY-20260118-15\nJumlah: Rp 16,500,000\nMetode: QRIS Corporate Dinamis\nStatus: Menunggu Verifikasi')"><i class="ti ti-receipt"></i> Bukti</button>
+			</td>
+		</tr>
+        
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+
+</div> <!-- /.main-wrapper -->
+
+<!-- Core Scripts -->
+<script src="assets/js/jquery-3.7.1.min.js"></script>
+<script src="assets/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/feather.min.js"></script>
+<script src="assets/js/jquery.slimscroll.min.js"></script>
+<script src="assets/js/jquery.dataTables.min.js"></script>
+<script src="assets/js/dataTables.bootstrap5.min.js"></script>
+<script src="assets/js/moment.min.js"></script>
+<script src="assets/plugins/daterangepicker/daterangepicker.js"></script>
+<script src="assets/js/script.js"></script>
+<script src="../demo-bar/demo-bar.js"></script>
+<script>
+$(document).ready(function() {
+    // Inisialisasi daterangepicker jika ada elemen bookingrange
+    if ($.fn.daterangepicker && $('.bookingrange').length > 0) {
+        $('.bookingrange').daterangepicker({
+            opens: 'left',
+            locale: {
+                format: 'DD/MM/YYYY'
+            }
+        });
+    }
+});
+</script>
+</body>
+</html>

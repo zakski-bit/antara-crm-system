@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+	<title>ANTARA CRM - Mitra & Korporasi</title>
+	
+	<!-- Favicon -->
+	<link rel="icon" type="image/x-icon" href="../favicon.ico">
+	<link rel="icon" type="image/png" sizes="32x32" href="../favicon.png">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/plugins/icons/feather/feather.css">
+	<link rel="stylesheet" href="assets/plugins/tabler-icons/tabler-icons.css">
+	<link rel="stylesheet" href="assets/plugins/fontawesome/css/fontawesome.min.css">
+	<link rel="stylesheet" href="assets/plugins/fontawesome/css/all.min.css">
+	<link rel="stylesheet" href="assets/plugins/select2/css/select2.min.css">
+	<link rel="stylesheet" href="assets/plugins/daterangepicker/daterangepicker.css">
+	<link rel="stylesheet" href="assets/css/dataTables.bootstrap5.min.css">
+	<link rel="stylesheet" href="assets/css/style.css">
+	<link rel="stylesheet" href="../demo-bar/demo-bar.css">
+
+	<!-- Google Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+	<style>
+		:root {
+			--primary: #D70006;
+			--primary-hover: #B50005;
+			--primary-light: rgba(215, 0, 6, 0.1);
+			--secondary: #24201F;
+			--dark: #24201F;
+			--body-font: 'Outfit', sans-serif;
+			--title-font: 'Roboto', sans-serif;
+		}
+		body {
+			font-family: 'Outfit', sans-serif !important;
+		}
+		h1, h2, h3, h4, h5, h6, .page-header h3, .page-header h4 {
+			font-family: 'Roboto', sans-serif !important;
+		}
+		.sidebar {
+			background-color: #1a1816 !important;
+		}
+		.sidebar .sidebar-menu>ul>li a.active, .sidebar .sidebar-menu>ul>li a:hover {
+			color: #fff !important;
+			background: rgba(215, 0, 6, 0.15) !important;
+		}
+		.sidebar .sidebar-menu>ul>li a.active i, .sidebar .sidebar-menu>ul>li a:hover i {
+			color: #D70006 !important;
+		}
+		.sidebar-logo {
+			background-color: #24201F !important;
+			border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+		}
+		.header {
+			background: #2F3E56 !important;
+			border-bottom: 2px solid #233046 !important;
+		}
+		.header-welcome-message {
+			color: #ffffff;
+			font-weight: 600;
+			font-size: 14px;
+		}
+		.btn-primary {
+			background-color: #D70006 !important;
+			border-color: #D70006 !important;
+		}
+		.btn-primary:hover {
+			background-color: #B50005 !important;
+			border-color: #B50005 !important;
+		}
+		.badge-antara {
+			background-color: rgba(215, 0, 6, 0.12);
+			color: #D70006;
+			font-weight: 600;
+		}
+		.card {
+			border-radius: 8px;
+		}
+		.sparkline {
+			font-size: 11px;
+			color: #64748b;
+			font-weight: 600;
+		}
+		.nav-pills .nav-link.active {
+			background-color: #D70006 !important;
+		}
+	</style>
+</head>
+<body>
+<div class="main-wrapper">
+
+
+	<!-- Header -->
+	<div class="header">
+		<div class="main-header">
+			<div class="header-left">
+				<a href="index.html" class="logo">
+					<img src="assets/img/logo-antaradark.png" alt="Logo Antara" style="height:36px;">
+				</a>
+			</div>
+
+			<a id="mobile_btn" class="mobile_btn" href="#sidebar">
+				<span class="bar-icon">
+					<span></span><span></span><span></span>
+				</span>
+			</a>
+
+			<div class="header-user">
+				<div class="nav user-menu nav-list">
+					<div class="me-auto d-flex align-items-center" id="header-search">
+						<a id="toggle_btn" href="javascript:void(0);" class="btn btn-menubar me-1 text-white">
+							<i class="ti ti-arrow-bar-to-left"></i>
+						</a>
+						<div class="header-welcome-message me-2">
+							Selamat Datang di CRM ANTARA <span style="font-style:italic; font-weight:normal; opacity:0.85;">Information System</span>
+						</div>
+					</div>
+
+					<ul class="nav user-menu">
+						<li class="nav-item dropdown me-2">
+							<a href="javascript:void(0);" class="btn btn-menubar text-white position-relative" data-bs-toggle="dropdown">
+								<i class="ti ti-bell"></i>
+								<span class="badge bg-danger rounded-pill position-absolute top-0 start-100 translate-middle" style="font-size:10px;">3</span>
+							</a>
+							<div class="dropdown-menu dropdown-menu-end p-3 shadow" style="min-width: 280px;">
+								<h6 class="fw-bold mb-2">Notifikasi Sistem</h6>
+								<div class="list-group list-group-flush fs-12">
+									<a href="todo.html" class="list-group-item list-group-item-action px-0 py-2">
+										<i class="ti ti-alert-circle text-danger me-1"></i> 1 Tiket Kritis Memerlukan Tindakan
+									</a>
+									<a href="invoices.html" class="list-group-item list-group-item-action px-0 py-2">
+										<i class="ti ti-file-invoice text-warning me-1"></i> 1 Tagihan Mendekati Jatuh Tempo
+									</a>
+									<a href="email.html" class="list-group-item list-group-item-action px-0 py-2">
+										<i class="ti ti-mail text-primary me-1"></i> 2 Pesan Korespondensi Baru
+									</a>
+								</div>
+							</div>
+						</li>
+						<li class="nav-item dropdown has-arrow main-drop">
+							<a href="javascript:void(0);" class="dropdown-toggle nav-link userset d-flex align-items-center" data-bs-toggle="dropdown">
+								<span class="user-img me-2">
+									<img src="assets/img/profiles/avatar-02.jpg" alt="User" class="rounded-circle" style="width:34px; height:34px;">
+								</span>
+								<div class="user-info text-start d-none d-md-block text-white">
+									<h6 class="mb-0 fs-13 text-white fw-bold">Redaksi Antara</h6>
+									<span class="fs-11 text-white-50">Superadministrator / IT Lead</span>
+								</div>
+							</a>
+							<div class="dropdown-menu menu-drop-user dropdown-menu-end shadow">
+								<div class="profilename p-3 border-bottom">
+									<h6 class="fs-13 fw-bold mb-0">Redaksi Antara</h6>
+									<p class="fs-11 text-muted mb-0">Superadministrator / IT Lead</p>
+								</div>
+								<a class="dropdown-item" href="index.html"><i class="ti ti-layout-dashboard me-2"></i>Dashboard Admin</a>
+								<a class="dropdown-item" href="customer.html"><i class="ti ti-users me-2"></i>Portal Pelanggan</a>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item text-danger" href="../login.html"><i class="ti ti-logout me-2"></i>Keluar (Logout)</a>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- Sidebar -->
+	<div class="sidebar" id="sidebar">
+		<div class="sidebar-logo p-3 d-flex align-items-center justify-content-between">
+			<a href="index.html">
+				<img src="assets/img/logo-antaradark.png" alt="Logo" style="height:32px;">
+			</a>
+		</div>
+
+		<div class="sidebar-inner slimscroll">
+			<div id="sidebar-menu" class="sidebar-menu">
+				<ul>
+					<li class="menu-title"><span>NAVIGASI UTAMA</span></li>
+					<li>
+						<a href="index.html" class="">
+							<i class="ti ti-smart-home"></i><span>Dashboard Admin</span>
+						</a>
+					</li>
+					<li>
+						<a href="customer.html" class="">
+							<i class="ti ti-users"></i><span>Portal Pelanggan/Mitra</span>
+						</a>
+					</li>
+
+					<li class="menu-title"><span>APLIKASI CRM</span></li>
+					<li>
+						<a href="email.html" class="">
+							<i class="ti ti-mail"></i><span>Korespondensi</span><span class="badge bg-danger ms-auto">2</span>
+						</a>
+					</li>
+					<li>
+						<a href="todo.html" class="">
+							<i class="ti ti-checkup-list"></i><span>Tiket Support & To-Do</span>
+						</a>
+					</li>
+
+					<li class="menu-title"><span>KONTEN & RELASI</span></li>
+					<li>
+						<a href="mitra.html" class="active">
+							<i class="ti ti-world"></i><span>Mitra & Korporasi</span>
+						</a>
+					</li>
+					<li>
+						<a href="produk-antara.html" class="">
+							<i class="ti ti-packages"></i><span>Katalog Produk ANTARA</span>
+						</a>
+					</li>
+
+					<li class="menu-title"><span>BILLING & TRANSAKSI</span></li>
+					<li>
+						<a href="invoices.html" class="">
+							<i class="ti ti-file-invoice"></i><span>Tagihan / Invoices</span><span class="badge bg-warning ms-auto text-dark">4</span>
+						</a>
+					</li>
+					<li>
+						<a href="payments.html" class="">
+							<i class="ti ti-credit-card"></i><span>Riwayat Pembayaran</span>
+						</a>
+					</li>
+
+					<li class="menu-title"><span>DEMO PORTOFOLIO</span></li>
+					<li>
+						<a href="../index.html"><i class="ti ti-arrow-back-up"></i><span>Kembali ke Beranda</span></a>
+					</li>
+					<li>
+						<a href="../login.html"><i class="ti ti-lock"></i><span>Halaman Login / OTP</span></a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="page-wrapper">
+		<div class="content container-fluid">
+
+			<!-- Page Header -->
+			<div class="d-md-flex d-block align-items-center justify-content-between page-breadcrumb mb-3">
+				<div class="my-auto mb-2">
+					<h2 class="mb-1">Jaringan Mitra Media &amp; Korporasi</h2>
+					<nav>
+						<ol class="breadcrumb mb-0">
+							<li class="breadcrumb-item"><a href="index.html"><i class="ti ti-smart-home"></i></a></li>
+							<li class="breadcrumb-item">Relasi &amp; Kemitraan</li>
+							<li class="breadcrumb-item active" aria-current="page">Mitra &amp; Korporasi</li>
+						</ol>
+					</nav>
+				</div>
+				<div class="d-flex my-xl-auto right-content align-items-center flex-wrap gap-2">
+					<button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#tambahMitraModal"><i class="ti ti-plus me-1"></i>Tambah Mitra Baru</button>
+				</div>
+			</div>
+
+			<!-- Stats Row -->
+			<div class="row g-3 mb-4">
+				<div class="col-xl-3 col-sm-6">
+					<div class="card shadow-sm border-0 h-100">
+						<div class="card-body">
+							<div class="d-flex justify-content-between align-items-center mb-2">
+								<span class="text-muted fs-12">Total Rekanan Mitra</span>
+								<span class="avatar avatar-sm bg-danger bg-opacity-10 text-danger rounded"><i class="ti ti-world"></i></span>
+							</div>
+							<h3 class="fw-bold mb-0">14</h3>
+							<span class="text-success fs-11">● 100% Terverifikasi Aktif</span>
+						</div>
+					</div>
+				</div>
+				<div class="col-xl-3 col-sm-6">
+					<div class="card shadow-sm border-0 h-100">
+						<div class="card-body">
+							<div class="d-flex justify-content-between align-items-center mb-2">
+								<span class="text-muted fs-12">Aliansi Strategis Global</span>
+								<span class="avatar avatar-sm bg-primary bg-opacity-10 text-primary rounded"><i class="ti ti-flag"></i></span>
+							</div>
+							<h3 class="fw-bold mb-0">2</h3>
+							<span class="text-primary fs-11">● Reuters &amp; Bloomberg</span>
+						</div>
+					</div>
+				</div>
+				<div class="col-xl-3 col-sm-6">
+					<div class="card shadow-sm border-0 h-100">
+						<div class="card-body">
+							<div class="d-flex justify-content-between align-items-center mb-2">
+								<span class="text-muted fs-12">Editorial Partner</span>
+								<span class="avatar avatar-sm bg-info bg-opacity-10 text-info rounded"><i class="ti ti-news"></i></span>
+							</div>
+							<h3 class="fw-bold mb-0">8</h3>
+							<span class="text-info fs-11">● Pertukaran Berita Internasional</span>
+						</div>
+					</div>
+				</div>
+				<div class="col-xl-3 col-sm-6">
+					<div class="card shadow-sm border-0 h-100">
+						<div class="card-body">
+							<div class="d-flex justify-content-between align-items-center mb-2">
+								<span class="text-muted fs-12">Jalur Distribusi Media</span>
+								<span class="avatar avatar-sm bg-success bg-opacity-10 text-success rounded"><i class="ti ti-broadcast"></i></span>
+							</div>
+							<h3 class="fw-bold mb-0">4</h3>
+							<span class="text-success fs-11">● AsiaNet, ACN, HCM Ads, Finsoft</span>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Tabs Tampilan -->
+			<ul class="nav nav-pills mb-3" id="mitraTab" role="tablist">
+				<li class="nav-item">
+					<button class="nav-link active" id="grid-tab" data-bs-toggle="pill" data-bs-target="#grid-view"><i class="ti ti-layout-grid me-1"></i>Tampilan Kartu (Grid)</button>
+				</li>
+				<li class="nav-item">
+					<button class="nav-link" id="table-tab" data-bs-toggle="pill" data-bs-target="#table-view"><i class="ti ti-table me-1"></i>Tampilan Tabel Data</button>
+				</li>
+			</ul>
+
+			<!-- Tab Content -->
+			<div class="tab-content" id="mitraTabContent">
+				<div class="tab-pane fade show active" id="grid-view">
+					<div class="row g-4">
+						
+		<div class="col-xl-4 col-md-6">
+			<div class="card shadow-sm border-0 h-100">
+				<div class="card-body p-4">
+					<div class="d-flex align-items-center justify-content-between mb-3">
+						<div class="p-2 bg-light rounded d-flex align-items-center justify-content-center" style="width: 80px; height: 50px;">
+							<img src="assets/img/mitra/logo-reuters.png" alt="Reuters News Agency" style="max-width: 100%; max-height: 100%; object-fit: contain;" onerror="this.src='assets/img/logo.png'">
+						</div>
+						<span class="badge bg-danger">Strategic Alliance</span>
+					</div>
+					<h5 class="fw-bold mb-1">Reuters News Agency</h5>
+					<p class="text-muted fs-12 mb-3">Media & Informasi Global</p>
+					
+					<div class="fs-12 text-secondary mb-3">
+						<div class="mb-1"><i class="ti ti-user me-2 text-danger"></i><strong>PIC:</strong> Emma Johnson</div>
+						<div class="mb-1"><i class="ti ti-mail me-2 text-danger"></i>partner.sales@reuters.com</div>
+						<div class="mb-1"><i class="ti ti-phone me-2 text-danger"></i>+44 20 7542 8313</div>
+						<div><i class="ti ti-map-pin me-2 text-danger"></i>5 Canada Square, London</div>
+					</div>
+
+					<div class="d-flex align-items-center justify-content-between pt-2 border-top">
+						<a href="email.html" class="btn btn-outline-danger btn-sm"><i class="ti ti-mail me-1"></i>Kirim Surat</a>
+						<a href="invoices.html" class="btn btn-light btn-sm"><i class="ti ti-file-invoice me-1"></i>Tagihan</a>
+					</div>
+				</div>
+			</div>
+		</div>
+        
+		<div class="col-xl-4 col-md-6">
+			<div class="card shadow-sm border-0 h-100">
+				<div class="card-body p-4">
+					<div class="d-flex align-items-center justify-content-between mb-3">
+						<div class="p-2 bg-light rounded d-flex align-items-center justify-content-center" style="width: 80px; height: 50px;">
+							<img src="assets/img/mitra/logo-bloomberg.png" alt="Bloomberg L.P." style="max-width: 100%; max-height: 100%; object-fit: contain;" onerror="this.src='assets/img/logo.png'">
+						</div>
+						<span class="badge bg-danger">Strategic Alliance</span>
+					</div>
+					<h5 class="fw-bold mb-1">Bloomberg L.P.</h5>
+					<p class="text-muted fs-12 mb-3">Media & Data Finansial</p>
+					
+					<div class="fs-12 text-secondary mb-3">
+						<div class="mb-1"><i class="ti ti-user me-2 text-danger"></i><strong>PIC:</strong> Samantha Lee</div>
+						<div class="mb-1"><i class="ti ti-mail me-2 text-danger"></i>business@bloomberg.net</div>
+						<div class="mb-1"><i class="ti ti-phone me-2 text-danger"></i>+1 212-318-2000</div>
+						<div><i class="ti ti-map-pin me-2 text-danger"></i>731 Lexington Avenue, New York</div>
+					</div>
+
+					<div class="d-flex align-items-center justify-content-between pt-2 border-top">
+						<a href="email.html" class="btn btn-outline-danger btn-sm"><i class="ti ti-mail me-1"></i>Kirim Surat</a>
+						<a href="invoices.html" class="btn btn-light btn-sm"><i class="ti ti-file-invoice me-1"></i>Tagihan</a>
+					</div>
+				</div>
+			</div>
+		</div>
+        
+		<div class="col-xl-4 col-md-6">
+			<div class="card shadow-sm border-0 h-100">
+				<div class="card-body p-4">
+					<div class="d-flex align-items-center justify-content-between mb-3">
+						<div class="p-2 bg-light rounded d-flex align-items-center justify-content-center" style="width: 80px; height: 50px;">
+							<img src="assets/img/mitra/logo-ap-news.png" alt="Associated Press (AP)" style="max-width: 100%; max-height: 100%; object-fit: contain;" onerror="this.src='assets/img/logo.png'">
+						</div>
+						<span class="badge bg-info text-dark">Editorial Partner</span>
+					</div>
+					<h5 class="fw-bold mb-1">Associated Press (AP)</h5>
+					<p class="text-muted fs-12 mb-3">Kantor Berita Internasional</p>
+					
+					<div class="fs-12 text-secondary mb-3">
+						<div class="mb-1"><i class="ti ti-user me-2 text-danger"></i><strong>PIC:</strong> Michael Turner</div>
+						<div class="mb-1"><i class="ti ti-mail me-2 text-danger"></i>partners@ap.org</div>
+						<div class="mb-1"><i class="ti ti-phone me-2 text-danger"></i>+1 212-621-1500</div>
+						<div><i class="ti ti-map-pin me-2 text-danger"></i>200 Liberty Street, New York</div>
+					</div>
+
+					<div class="d-flex align-items-center justify-content-between pt-2 border-top">
+						<a href="email.html" class="btn btn-outline-danger btn-sm"><i class="ti ti-mail me-1"></i>Kirim Surat</a>
+						<a href="invoices.html" class="btn btn-light btn-sm"><i class="ti ti-file-invoice me-1"></i>Tagihan</a>
+					</div>
+				</div>
+			</div>
+		</div>
+        
+		<div class="col-xl-4 col-md-6">
+			<div class="card shadow-sm border-0 h-100">
+				<div class="card-body p-4">
+					<div class="d-flex align-items-center justify-content-between mb-3">
+						<div class="p-2 bg-light rounded d-flex align-items-center justify-content-center" style="width: 80px; height: 50px;">
+							<img src="assets/img/mitra/logo-afp.png" alt="Agence France-Presse (AFP)" style="max-width: 100%; max-height: 100%; object-fit: contain;" onerror="this.src='assets/img/logo.png'">
+						</div>
+						<span class="badge bg-info text-dark">Editorial Partner</span>
+					</div>
+					<h5 class="fw-bold mb-1">Agence France-Presse (AFP)</h5>
+					<p class="text-muted fs-12 mb-3">Kantor Berita Internasional</p>
+					
+					<div class="fs-12 text-secondary mb-3">
+						<div class="mb-1"><i class="ti ti-user me-2 text-danger"></i><strong>PIC:</strong> Jean Dupont</div>
+						<div class="mb-1"><i class="ti ti-mail me-2 text-danger"></i>partnership@afp.com</div>
+						<div class="mb-1"><i class="ti ti-phone me-2 text-danger"></i>+33 1 40 41 46 46</div>
+						<div><i class="ti ti-map-pin me-2 text-danger"></i>11 Place de la Bourse, Paris</div>
+					</div>
+
+					<div class="d-flex align-items-center justify-content-between pt-2 border-top">
+						<a href="email.html" class="btn btn-outline-danger btn-sm"><i class="ti ti-mail me-1"></i>Kirim Surat</a>
+						<a href="invoices.html" class="btn btn-light btn-sm"><i class="ti ti-file-invoice me-1"></i>Tagihan</a>
+					</div>
+				</div>
+			</div>
+		</div>
+        
+		<div class="col-xl-4 col-md-6">
+			<div class="card shadow-sm border-0 h-100">
+				<div class="card-body p-4">
+					<div class="d-flex align-items-center justify-content-between mb-3">
+						<div class="p-2 bg-light rounded d-flex align-items-center justify-content-center" style="width: 80px; height: 50px;">
+							<img src="assets/img/mitra/logo-xinhua-news-agency.png" alt="Xinhua News Agency" style="max-width: 100%; max-height: 100%; object-fit: contain;" onerror="this.src='assets/img/logo.png'">
+						</div>
+						<span class="badge bg-info text-dark">Editorial Partner</span>
+					</div>
+					<h5 class="fw-bold mb-1">Xinhua News Agency</h5>
+					<p class="text-muted fs-12 mb-3">Kantor Berita Asia</p>
+					
+					<div class="fs-12 text-secondary mb-3">
+						<div class="mb-1"><i class="ti ti-user me-2 text-danger"></i><strong>PIC:</strong> Li Wei</div>
+						<div class="mb-1"><i class="ti ti-mail me-2 text-danger"></i>service@mail.xinhuanet.com</div>
+						<div class="mb-1"><i class="ti ti-phone me-2 text-danger"></i>+86 10 6307 3666</div>
+						<div><i class="ti ti-map-pin me-2 text-danger"></i>57 Xuanwumen Xidajie, Beijing</div>
+					</div>
+
+					<div class="d-flex align-items-center justify-content-between pt-2 border-top">
+						<a href="email.html" class="btn btn-outline-danger btn-sm"><i class="ti ti-mail me-1"></i>Kirim Surat</a>
+						<a href="invoices.html" class="btn btn-light btn-sm"><i class="ti ti-file-invoice me-1"></i>Tagihan</a>
+					</div>
+				</div>
+			</div>
+		</div>
+        
+		<div class="col-xl-4 col-md-6">
+			<div class="card shadow-sm border-0 h-100">
+				<div class="card-body p-4">
+					<div class="d-flex align-items-center justify-content-between mb-3">
+						<div class="p-2 bg-light rounded d-flex align-items-center justify-content-center" style="width: 80px; height: 50px;">
+							<img src="assets/img/mitra/logo-kyodo-news.png" alt="Kyodo News" style="max-width: 100%; max-height: 100%; object-fit: contain;" onerror="this.src='assets/img/logo.png'">
+						</div>
+						<span class="badge bg-info text-dark">Editorial Partner</span>
+					</div>
+					<h5 class="fw-bold mb-1">Kyodo News</h5>
+					<p class="text-muted fs-12 mb-3">Kantor Berita Jepang</p>
+					
+					<div class="fs-12 text-secondary mb-3">
+						<div class="mb-1"><i class="ti ti-user me-2 text-danger"></i><strong>PIC:</strong> Kenji Nakamura</div>
+						<div class="mb-1"><i class="ti ti-mail me-2 text-danger"></i>global@kyodonews.jp</div>
+						<div class="mb-1"><i class="ti ti-phone me-2 text-danger"></i>+81 3-6252-8400</div>
+						<div><i class="ti ti-map-pin me-2 text-danger"></i>Shiodome Media Tower, Tokyo</div>
+					</div>
+
+					<div class="d-flex align-items-center justify-content-between pt-2 border-top">
+						<a href="email.html" class="btn btn-outline-danger btn-sm"><i class="ti ti-mail me-1"></i>Kirim Surat</a>
+						<a href="invoices.html" class="btn btn-light btn-sm"><i class="ti ti-file-invoice me-1"></i>Tagihan</a>
+					</div>
+				</div>
+			</div>
+		</div>
+        
+		<div class="col-xl-4 col-md-6">
+			<div class="card shadow-sm border-0 h-100">
+				<div class="card-body p-4">
+					<div class="d-flex align-items-center justify-content-between mb-3">
+						<div class="p-2 bg-light rounded d-flex align-items-center justify-content-center" style="width: 80px; height: 50px;">
+							<img src="assets/img/mitra/logo-bernama.png" alt="Bernama" style="max-width: 100%; max-height: 100%; object-fit: contain;" onerror="this.src='assets/img/logo.png'">
+						</div>
+						<span class="badge bg-info text-dark">Editorial Partner</span>
+					</div>
+					<h5 class="fw-bold mb-1">Bernama</h5>
+					<p class="text-muted fs-12 mb-3">Kantor Berita Malaysia</p>
+					
+					<div class="fs-12 text-secondary mb-3">
+						<div class="mb-1"><i class="ti ti-user me-2 text-danger"></i><strong>PIC:</strong> Nur Aisyah</div>
+						<div class="mb-1"><i class="ti ti-mail me-2 text-danger"></i>info@bernama.com</div>
+						<div class="mb-1"><i class="ti ti-phone me-2 text-danger"></i>+60 3 2693 9933</div>
+						<div><i class="ti ti-map-pin me-2 text-danger"></i>Jalan Yap Kwan Seng, Kuala Lumpur</div>
+					</div>
+
+					<div class="d-flex align-items-center justify-content-between pt-2 border-top">
+						<a href="email.html" class="btn btn-outline-danger btn-sm"><i class="ti ti-mail me-1"></i>Kirim Surat</a>
+						<a href="invoices.html" class="btn btn-light btn-sm"><i class="ti ti-file-invoice me-1"></i>Tagihan</a>
+					</div>
+				</div>
+			</div>
+		</div>
+        
+		<div class="col-xl-4 col-md-6">
+			<div class="card shadow-sm border-0 h-100">
+				<div class="card-body p-4">
+					<div class="d-flex align-items-center justify-content-between mb-3">
+						<div class="p-2 bg-light rounded d-flex align-items-center justify-content-center" style="width: 80px; height: 50px;">
+							<img src="assets/img/mitra/logo-efe.png" alt="Agencia EFE" style="max-width: 100%; max-height: 100%; object-fit: contain;" onerror="this.src='assets/img/logo.png'">
+						</div>
+						<span class="badge bg-info text-dark">Editorial Partner</span>
+					</div>
+					<h5 class="fw-bold mb-1">Agencia EFE</h5>
+					<p class="text-muted fs-12 mb-3">Kantor Berita Spanyol</p>
+					
+					<div class="fs-12 text-secondary mb-3">
+						<div class="mb-1"><i class="ti ti-user me-2 text-danger"></i><strong>PIC:</strong> Carlos Gutierrez</div>
+						<div class="mb-1"><i class="ti ti-mail me-2 text-danger"></i>comercial@efe.com</div>
+						<div class="mb-1"><i class="ti ti-phone me-2 text-danger"></i>+34 91 347 82 00</div>
+						<div><i class="ti ti-map-pin me-2 text-danger"></i>Avenida de Burgos 8B, Madrid</div>
+					</div>
+
+					<div class="d-flex align-items-center justify-content-between pt-2 border-top">
+						<a href="email.html" class="btn btn-outline-danger btn-sm"><i class="ti ti-mail me-1"></i>Kirim Surat</a>
+						<a href="invoices.html" class="btn btn-light btn-sm"><i class="ti ti-file-invoice me-1"></i>Tagihan</a>
+					</div>
+				</div>
+			</div>
+		</div>
+        
+		<div class="col-xl-4 col-md-6">
+			<div class="card shadow-sm border-0 h-100">
+				<div class="card-body p-4">
+					<div class="d-flex align-items-center justify-content-between mb-3">
+						<div class="p-2 bg-light rounded d-flex align-items-center justify-content-center" style="width: 80px; height: 50px;">
+							<img src="assets/img/mitra/logo-oana.png" alt="OANA (Asia-Pacific News)" style="max-width: 100%; max-height: 100%; object-fit: contain;" onerror="this.src='assets/img/logo.png'">
+						</div>
+						<span class="badge bg-primary">Network Member</span>
+					</div>
+					<h5 class="fw-bold mb-1">OANA (Asia-Pacific News)</h5>
+					<p class="text-muted fs-12 mb-3">Aliansi Kantor Berita</p>
+					
+					<div class="fs-12 text-secondary mb-3">
+						<div class="mb-1"><i class="ti ti-user me-2 text-danger"></i><strong>PIC:</strong> Linh Wirawan</div>
+						<div class="mb-1"><i class="ti ti-mail me-2 text-danger"></i>secretariat@oananews.org</div>
+						<div class="mb-1"><i class="ti ti-phone me-2 text-danger"></i>+60 3 2693 9933</div>
+						<div><i class="ti ti-map-pin me-2 text-danger"></i>Sekretariat OANA, Kuala Lumpur</div>
+					</div>
+
+					<div class="d-flex align-items-center justify-content-between pt-2 border-top">
+						<a href="email.html" class="btn btn-outline-danger btn-sm"><i class="ti ti-mail me-1"></i>Kirim Surat</a>
+						<a href="invoices.html" class="btn btn-light btn-sm"><i class="ti ti-file-invoice me-1"></i>Tagihan</a>
+					</div>
+				</div>
+			</div>
+		</div>
+        
+		<div class="col-xl-4 col-md-6">
+			<div class="card shadow-sm border-0 h-100">
+				<div class="card-body p-4">
+					<div class="d-flex align-items-center justify-content-between mb-3">
+						<div class="p-2 bg-light rounded d-flex align-items-center justify-content-center" style="width: 80px; height: 50px;">
+							<img src="assets/img/mitra/logo-sputnik.png" alt="Sputnik News" style="max-width: 100%; max-height: 100%; object-fit: contain;" onerror="this.src='assets/img/logo.png'">
+						</div>
+						<span class="badge bg-info text-dark">Editorial Partner</span>
+					</div>
+					<h5 class="fw-bold mb-1">Sputnik News</h5>
+					<p class="text-muted fs-12 mb-3">Kantor Berita Internasional</p>
+					
+					<div class="fs-12 text-secondary mb-3">
+						<div class="mb-1"><i class="ti ti-user me-2 text-danger"></i><strong>PIC:</strong> Sergey Petrov</div>
+						<div class="mb-1"><i class="ti ti-mail me-2 text-danger"></i>world@sputniknews.com</div>
+						<div class="mb-1"><i class="ti ti-phone me-2 text-danger"></i>+7 495 139 62 70</div>
+						<div><i class="ti ti-map-pin me-2 text-danger"></i>Zubovskaya St. 4, Moscow</div>
+					</div>
+
+					<div class="d-flex align-items-center justify-content-between pt-2 border-top">
+						<a href="email.html" class="btn btn-outline-danger btn-sm"><i class="ti ti-mail me-1"></i>Kirim Surat</a>
+						<a href="invoices.html" class="btn btn-light btn-sm"><i class="ti ti-file-invoice me-1"></i>Tagihan</a>
+					</div>
+				</div>
+			</div>
+		</div>
+        
+		<div class="col-xl-4 col-md-6">
+			<div class="card shadow-sm border-0 h-100">
+				<div class="card-body p-4">
+					<div class="d-flex align-items-center justify-content-between mb-3">
+						<div class="p-2 bg-light rounded d-flex align-items-center justify-content-center" style="width: 80px; height: 50px;">
+							<img src="assets/img/mitra/logo-asianet.png" alt="AsiaNet Australia" style="max-width: 100%; max-height: 100%; object-fit: contain;" onerror="this.src='assets/img/logo.png'">
+						</div>
+						<span class="badge bg-success">Media Distribution</span>
+					</div>
+					<h5 class="fw-bold mb-1">AsiaNet Australia</h5>
+					<p class="text-muted fs-12 mb-3">Distribusi Berita Asia Pasifik</p>
+					
+					<div class="fs-12 text-secondary mb-3">
+						<div class="mb-1"><i class="ti ti-user me-2 text-danger"></i><strong>PIC:</strong> Priya Menon</div>
+						<div class="mb-1"><i class="ti ti-mail me-2 text-danger"></i>info@asianetnews.net</div>
+						<div class="mb-1"><i class="ti ti-phone me-2 text-danger"></i>+61 2 9322 8659</div>
+						<div><i class="ti ti-map-pin me-2 text-danger"></i>Sydney, Australia</div>
+					</div>
+
+					<div class="d-flex align-items-center justify-content-between pt-2 border-top">
+						<a href="email.html" class="btn btn-outline-danger btn-sm"><i class="ti ti-mail me-1"></i>Kirim Surat</a>
+						<a href="invoices.html" class="btn btn-light btn-sm"><i class="ti ti-file-invoice me-1"></i>Tagihan</a>
+					</div>
+				</div>
+			</div>
+		</div>
+        
+		<div class="col-xl-4 col-md-6">
+			<div class="card shadow-sm border-0 h-100">
+				<div class="card-body p-4">
+					<div class="d-flex align-items-center justify-content-between mb-3">
+						<div class="p-2 bg-light rounded d-flex align-items-center justify-content-center" style="width: 80px; height: 50px;">
+							<img src="assets/img/mitra/logo-acnnewswire.png" alt="ACN Newswire" style="max-width: 100%; max-height: 100%; object-fit: contain;" onerror="this.src='assets/img/logo.png'">
+						</div>
+						<span class="badge bg-success">Media Distribution</span>
+					</div>
+					<h5 class="fw-bold mb-1">ACN Newswire</h5>
+					<p class="text-muted fs-12 mb-3">Distribusi Rilis Pers</p>
+					
+					<div class="fs-12 text-secondary mb-3">
+						<div class="mb-1"><i class="ti ti-user me-2 text-danger"></i><strong>PIC:</strong> Naoko Sato</div>
+						<div class="mb-1"><i class="ti ti-mail me-2 text-danger"></i>support@acnnewswire.com</div>
+						<div class="mb-1"><i class="ti ti-phone me-2 text-danger"></i>+65 6788 8670</div>
+						<div><i class="ti ti-map-pin me-2 text-danger"></i>1 Raffles Place, Singapore</div>
+					</div>
+
+					<div class="d-flex align-items-center justify-content-between pt-2 border-top">
+						<a href="email.html" class="btn btn-outline-danger btn-sm"><i class="ti ti-mail me-1"></i>Kirim Surat</a>
+						<a href="invoices.html" class="btn btn-light btn-sm"><i class="ti ti-file-invoice me-1"></i>Tagihan</a>
+					</div>
+				</div>
+			</div>
+		</div>
+        
+		<div class="col-xl-4 col-md-6">
+			<div class="card shadow-sm border-0 h-100">
+				<div class="card-body p-4">
+					<div class="d-flex align-items-center justify-content-between mb-3">
+						<div class="p-2 bg-light rounded d-flex align-items-center justify-content-center" style="width: 80px; height: 50px;">
+							<img src="assets/img/mitra/logo-hcm-ads-media.png" alt="HCM Ads Media" style="max-width: 100%; max-height: 100%; object-fit: contain;" onerror="this.src='assets/img/logo.png'">
+						</div>
+						<span class="badge bg-primary">Commercial Partner</span>
+					</div>
+					<h5 class="fw-bold mb-1">HCM Ads Media</h5>
+					<p class="text-muted fs-12 mb-3">Jaringan Media Asia Tenggara</p>
+					
+					<div class="fs-12 text-secondary mb-3">
+						<div class="mb-1"><i class="ti ti-user me-2 text-danger"></i><strong>PIC:</strong> Tran Thi Hoa</div>
+						<div class="mb-1"><i class="ti ti-mail me-2 text-danger"></i>partners@hcmedia.vn</div>
+						<div class="mb-1"><i class="ti ti-phone me-2 text-danger"></i>+84 28 3821 9922</div>
+						<div><i class="ti ti-map-pin me-2 text-danger"></i>District 1, Ho Chi Minh City</div>
+					</div>
+
+					<div class="d-flex align-items-center justify-content-between pt-2 border-top">
+						<a href="email.html" class="btn btn-outline-danger btn-sm"><i class="ti ti-mail me-1"></i>Kirim Surat</a>
+						<a href="invoices.html" class="btn btn-light btn-sm"><i class="ti ti-file-invoice me-1"></i>Tagihan</a>
+					</div>
+				</div>
+			</div>
+		</div>
+        
+		<div class="col-xl-4 col-md-6">
+			<div class="card shadow-sm border-0 h-100">
+				<div class="card-body p-4">
+					<div class="d-flex align-items-center justify-content-between mb-3">
+						<div class="p-2 bg-light rounded d-flex align-items-center justify-content-center" style="width: 80px; height: 50px;">
+							<img src="assets/img/mitra/logo-sevencyber.png" alt="SevenCyber Security" style="max-width: 100%; max-height: 100%; object-fit: contain;" onerror="this.src='assets/img/logo.png'">
+						</div>
+						<span class="badge bg-dark">Security Partner</span>
+					</div>
+					<h5 class="fw-bold mb-1">SevenCyber Security</h5>
+					<p class="text-muted fs-12 mb-3">Keamanan Siber & Enkripsi</p>
+					
+					<div class="fs-12 text-secondary mb-3">
+						<div class="mb-1"><i class="ti ti-user me-2 text-danger"></i><strong>PIC:</strong> Bima Arista</div>
+						<div class="mb-1"><i class="ti ti-mail me-2 text-danger"></i>contact@sevencyber.id</div>
+						<div class="mb-1"><i class="ti ti-phone me-2 text-danger"></i>+62 21 7788 9900</div>
+						<div><i class="ti ti-map-pin me-2 text-danger"></i>BSD City, Tangerang</div>
+					</div>
+
+					<div class="d-flex align-items-center justify-content-between pt-2 border-top">
+						<a href="email.html" class="btn btn-outline-danger btn-sm"><i class="ti ti-mail me-1"></i>Kirim Surat</a>
+						<a href="invoices.html" class="btn btn-light btn-sm"><i class="ti ti-file-invoice me-1"></i>Tagihan</a>
+					</div>
+				</div>
+			</div>
+		</div>
+        
+					</div>
+				</div>
+
+				<div class="tab-pane fade" id="table-view">
+					<div class="card shadow-sm border-0">
+						<div class="card-body">
+							<div class="table-responsive">
+								<table class="table table-hover align-middle datatable">
+									<thead class="table-light">
+										<tr>
+											<th>Mitra Korporasi</th>
+											<th>Bidang Industri</th>
+											<th>PIC Kontak</th>
+											<th>Status Kemitraan</th>
+											<th>Email Korespondensi</th>
+											<th>Aksi</th>
+										</tr>
+									</thead>
+									<tbody>
+										
+		<tr>
+			<td>
+				<div class="d-flex align-items-center">
+					<div class="p-1 bg-light rounded me-2 d-flex align-items-center justify-content-center" style="width: 40px; height: 30px;">
+						<img src="assets/img/mitra/logo-reuters.png" alt="Reuters News Agency" style="max-width: 100%; max-height: 100%; object-fit: contain;" onerror="this.src='assets/img/logo.png'">
+					</div>
+					<div>
+						<h6 class="mb-0 fw-bold">Reuters News Agency</h6>
+						<span class="text-muted fs-11">5 Canada Square, London</span>
+					</div>
+				</div>
+			</td>
+			<td>Media & Informasi Global</td>
+			<td>Emma Johnson</td>
+			<td><span class="badge bg-danger">Strategic Alliance</span></td>
+			<td>partner.sales@reuters.com</td>
+			<td>
+				<a href="email.html" class="btn btn-sm btn-light"><i class="ti ti-mail"></i></a>
+				<a href="invoices.html" class="btn btn-sm btn-light"><i class="ti ti-receipt"></i></a>
+			</td>
+		</tr>
+        
+		<tr>
+			<td>
+				<div class="d-flex align-items-center">
+					<div class="p-1 bg-light rounded me-2 d-flex align-items-center justify-content-center" style="width: 40px; height: 30px;">
+						<img src="assets/img/mitra/logo-bloomberg.png" alt="Bloomberg L.P." style="max-width: 100%; max-height: 100%; object-fit: contain;" onerror="this.src='assets/img/logo.png'">
+					</div>
+					<div>
+						<h6 class="mb-0 fw-bold">Bloomberg L.P.</h6>
+						<span class="text-muted fs-11">731 Lexington Avenue, New York</span>
+					</div>
+				</div>
+			</td>
+			<td>Media & Data Finansial</td>
+			<td>Samantha Lee</td>
+			<td><span class="badge bg-danger">Strategic Alliance</span></td>
+			<td>business@bloomberg.net</td>
+			<td>
+				<a href="email.html" class="btn btn-sm btn-light"><i class="ti ti-mail"></i></a>
+				<a href="invoices.html" class="btn btn-sm btn-light"><i class="ti ti-receipt"></i></a>
+			</td>
+		</tr>
+        
+		<tr>
+			<td>
+				<div class="d-flex align-items-center">
+					<div class="p-1 bg-light rounded me-2 d-flex align-items-center justify-content-center" style="width: 40px; height: 30px;">
+						<img src="assets/img/mitra/logo-ap-news.png" alt="Associated Press (AP)" style="max-width: 100%; max-height: 100%; object-fit: contain;" onerror="this.src='assets/img/logo.png'">
+					</div>
+					<div>
+						<h6 class="mb-0 fw-bold">Associated Press (AP)</h6>
+						<span class="text-muted fs-11">200 Liberty Street, New York</span>
+					</div>
+				</div>
+			</td>
+			<td>Kantor Berita Internasional</td>
+			<td>Michael Turner</td>
+			<td><span class="badge bg-info text-dark">Editorial Partner</span></td>
+			<td>partners@ap.org</td>
+			<td>
+				<a href="email.html" class="btn btn-sm btn-light"><i class="ti ti-mail"></i></a>
+				<a href="invoices.html" class="btn btn-sm btn-light"><i class="ti ti-receipt"></i></a>
+			</td>
+		</tr>
+        
+		<tr>
+			<td>
+				<div class="d-flex align-items-center">
+					<div class="p-1 bg-light rounded me-2 d-flex align-items-center justify-content-center" style="width: 40px; height: 30px;">
+						<img src="assets/img/mitra/logo-afp.png" alt="Agence France-Presse (AFP)" style="max-width: 100%; max-height: 100%; object-fit: contain;" onerror="this.src='assets/img/logo.png'">
+					</div>
+					<div>
+						<h6 class="mb-0 fw-bold">Agence France-Presse (AFP)</h6>
+						<span class="text-muted fs-11">11 Place de la Bourse, Paris</span>
+					</div>
+				</div>
+			</td>
+			<td>Kantor Berita Internasional</td>
+			<td>Jean Dupont</td>
+			<td><span class="badge bg-info text-dark">Editorial Partner</span></td>
+			<td>partnership@afp.com</td>
+			<td>
+				<a href="email.html" class="btn btn-sm btn-light"><i class="ti ti-mail"></i></a>
+				<a href="invoices.html" class="btn btn-sm btn-light"><i class="ti ti-receipt"></i></a>
+			</td>
+		</tr>
+        
+		<tr>
+			<td>
+				<div class="d-flex align-items-center">
+					<div class="p-1 bg-light rounded me-2 d-flex align-items-center justify-content-center" style="width: 40px; height: 30px;">
+						<img src="assets/img/mitra/logo-xinhua-news-agency.png" alt="Xinhua News Agency" style="max-width: 100%; max-height: 100%; object-fit: contain;" onerror="this.src='assets/img/logo.png'">
+					</div>
+					<div>
+						<h6 class="mb-0 fw-bold">Xinhua News Agency</h6>
+						<span class="text-muted fs-11">57 Xuanwumen Xidajie, Beijing</span>
+					</div>
+				</div>
+			</td>
+			<td>Kantor Berita Asia</td>
+			<td>Li Wei</td>
+			<td><span class="badge bg-info text-dark">Editorial Partner</span></td>
+			<td>service@mail.xinhuanet.com</td>
+			<td>
+				<a href="email.html" class="btn btn-sm btn-light"><i class="ti ti-mail"></i></a>
+				<a href="invoices.html" class="btn btn-sm btn-light"><i class="ti ti-receipt"></i></a>
+			</td>
+		</tr>
+        
+		<tr>
+			<td>
+				<div class="d-flex align-items-center">
+					<div class="p-1 bg-light rounded me-2 d-flex align-items-center justify-content-center" style="width: 40px; height: 30px;">
+						<img src="assets/img/mitra/logo-kyodo-news.png" alt="Kyodo News" style="max-width: 100%; max-height: 100%; object-fit: contain;" onerror="this.src='assets/img/logo.png'">
+					</div>
+					<div>
+						<h6 class="mb-0 fw-bold">Kyodo News</h6>
+						<span class="text-muted fs-11">Shiodome Media Tower, Tokyo</span>
+					</div>
+				</div>
+			</td>
+			<td>Kantor Berita Jepang</td>
+			<td>Kenji Nakamura</td>
+			<td><span class="badge bg-info text-dark">Editorial Partner</span></td>
+			<td>global@kyodonews.jp</td>
+			<td>
+				<a href="email.html" class="btn btn-sm btn-light"><i class="ti ti-mail"></i></a>
+				<a href="invoices.html" class="btn btn-sm btn-light"><i class="ti ti-receipt"></i></a>
+			</td>
+		</tr>
+        
+		<tr>
+			<td>
+				<div class="d-flex align-items-center">
+					<div class="p-1 bg-light rounded me-2 d-flex align-items-center justify-content-center" style="width: 40px; height: 30px;">
+						<img src="assets/img/mitra/logo-bernama.png" alt="Bernama" style="max-width: 100%; max-height: 100%; object-fit: contain;" onerror="this.src='assets/img/logo.png'">
+					</div>
+					<div>
+						<h6 class="mb-0 fw-bold">Bernama</h6>
+						<span class="text-muted fs-11">Jalan Yap Kwan Seng, Kuala Lumpur</span>
+					</div>
+				</div>
+			</td>
+			<td>Kantor Berita Malaysia</td>
+			<td>Nur Aisyah</td>
+			<td><span class="badge bg-info text-dark">Editorial Partner</span></td>
+			<td>info@bernama.com</td>
+			<td>
+				<a href="email.html" class="btn btn-sm btn-light"><i class="ti ti-mail"></i></a>
+				<a href="invoices.html" class="btn btn-sm btn-light"><i class="ti ti-receipt"></i></a>
+			</td>
+		</tr>
+        
+		<tr>
+			<td>
+				<div class="d-flex align-items-center">
+					<div class="p-1 bg-light rounded me-2 d-flex align-items-center justify-content-center" style="width: 40px; height: 30px;">
+						<img src="assets/img/mitra/logo-efe.png" alt="Agencia EFE" style="max-width: 100%; max-height: 100%; object-fit: contain;" onerror="this.src='assets/img/logo.png'">
+					</div>
+					<div>
+						<h6 class="mb-0 fw-bold">Agencia EFE</h6>
+						<span class="text-muted fs-11">Avenida de Burgos 8B, Madrid</span>
+					</div>
+				</div>
+			</td>
+			<td>Kantor Berita Spanyol</td>
+			<td>Carlos Gutierrez</td>
+			<td><span class="badge bg-info text-dark">Editorial Partner</span></td>
+			<td>comercial@efe.com</td>
+			<td>
+				<a href="email.html" class="btn btn-sm btn-light"><i class="ti ti-mail"></i></a>
+				<a href="invoices.html" class="btn btn-sm btn-light"><i class="ti ti-receipt"></i></a>
+			</td>
+		</tr>
+        
+		<tr>
+			<td>
+				<div class="d-flex align-items-center">
+					<div class="p-1 bg-light rounded me-2 d-flex align-items-center justify-content-center" style="width: 40px; height: 30px;">
+						<img src="assets/img/mitra/logo-oana.png" alt="OANA (Asia-Pacific News)" style="max-width: 100%; max-height: 100%; object-fit: contain;" onerror="this.src='assets/img/logo.png'">
+					</div>
+					<div>
+						<h6 class="mb-0 fw-bold">OANA (Asia-Pacific News)</h6>
+						<span class="text-muted fs-11">Sekretariat OANA, Kuala Lumpur</span>
+					</div>
+				</div>
+			</td>
+			<td>Aliansi Kantor Berita</td>
+			<td>Linh Wirawan</td>
+			<td><span class="badge bg-primary">Network Member</span></td>
+			<td>secretariat@oananews.org</td>
+			<td>
+				<a href="email.html" class="btn btn-sm btn-light"><i class="ti ti-mail"></i></a>
+				<a href="invoices.html" class="btn btn-sm btn-light"><i class="ti ti-receipt"></i></a>
+			</td>
+		</tr>
+        
+		<tr>
+			<td>
+				<div class="d-flex align-items-center">
+					<div class="p-1 bg-light rounded me-2 d-flex align-items-center justify-content-center" style="width: 40px; height: 30px;">
+						<img src="assets/img/mitra/logo-sputnik.png" alt="Sputnik News" style="max-width: 100%; max-height: 100%; object-fit: contain;" onerror="this.src='assets/img/logo.png'">
+					</div>
+					<div>
+						<h6 class="mb-0 fw-bold">Sputnik News</h6>
+						<span class="text-muted fs-11">Zubovskaya St. 4, Moscow</span>
+					</div>
+				</div>
+			</td>
+			<td>Kantor Berita Internasional</td>
+			<td>Sergey Petrov</td>
+			<td><span class="badge bg-info text-dark">Editorial Partner</span></td>
+			<td>world@sputniknews.com</td>
+			<td>
+				<a href="email.html" class="btn btn-sm btn-light"><i class="ti ti-mail"></i></a>
+				<a href="invoices.html" class="btn btn-sm btn-light"><i class="ti ti-receipt"></i></a>
+			</td>
+		</tr>
+        
+		<tr>
+			<td>
+				<div class="d-flex align-items-center">
+					<div class="p-1 bg-light rounded me-2 d-flex align-items-center justify-content-center" style="width: 40px; height: 30px;">
+						<img src="assets/img/mitra/logo-asianet.png" alt="AsiaNet Australia" style="max-width: 100%; max-height: 100%; object-fit: contain;" onerror="this.src='assets/img/logo.png'">
+					</div>
+					<div>
+						<h6 class="mb-0 fw-bold">AsiaNet Australia</h6>
+						<span class="text-muted fs-11">Sydney, Australia</span>
+					</div>
+				</div>
+			</td>
+			<td>Distribusi Berita Asia Pasifik</td>
+			<td>Priya Menon</td>
+			<td><span class="badge bg-success">Media Distribution</span></td>
+			<td>info@asianetnews.net</td>
+			<td>
+				<a href="email.html" class="btn btn-sm btn-light"><i class="ti ti-mail"></i></a>
+				<a href="invoices.html" class="btn btn-sm btn-light"><i class="ti ti-receipt"></i></a>
+			</td>
+		</tr>
+        
+		<tr>
+			<td>
+				<div class="d-flex align-items-center">
+					<div class="p-1 bg-light rounded me-2 d-flex align-items-center justify-content-center" style="width: 40px; height: 30px;">
+						<img src="assets/img/mitra/logo-acnnewswire.png" alt="ACN Newswire" style="max-width: 100%; max-height: 100%; object-fit: contain;" onerror="this.src='assets/img/logo.png'">
+					</div>
+					<div>
+						<h6 class="mb-0 fw-bold">ACN Newswire</h6>
+						<span class="text-muted fs-11">1 Raffles Place, Singapore</span>
+					</div>
+				</div>
+			</td>
+			<td>Distribusi Rilis Pers</td>
+			<td>Naoko Sato</td>
+			<td><span class="badge bg-success">Media Distribution</span></td>
+			<td>support@acnnewswire.com</td>
+			<td>
+				<a href="email.html" class="btn btn-sm btn-light"><i class="ti ti-mail"></i></a>
+				<a href="invoices.html" class="btn btn-sm btn-light"><i class="ti ti-receipt"></i></a>
+			</td>
+		</tr>
+        
+		<tr>
+			<td>
+				<div class="d-flex align-items-center">
+					<div class="p-1 bg-light rounded me-2 d-flex align-items-center justify-content-center" style="width: 40px; height: 30px;">
+						<img src="assets/img/mitra/logo-hcm-ads-media.png" alt="HCM Ads Media" style="max-width: 100%; max-height: 100%; object-fit: contain;" onerror="this.src='assets/img/logo.png'">
+					</div>
+					<div>
+						<h6 class="mb-0 fw-bold">HCM Ads Media</h6>
+						<span class="text-muted fs-11">District 1, Ho Chi Minh City</span>
+					</div>
+				</div>
+			</td>
+			<td>Jaringan Media Asia Tenggara</td>
+			<td>Tran Thi Hoa</td>
+			<td><span class="badge bg-primary">Commercial Partner</span></td>
+			<td>partners@hcmedia.vn</td>
+			<td>
+				<a href="email.html" class="btn btn-sm btn-light"><i class="ti ti-mail"></i></a>
+				<a href="invoices.html" class="btn btn-sm btn-light"><i class="ti ti-receipt"></i></a>
+			</td>
+		</tr>
+        
+		<tr>
+			<td>
+				<div class="d-flex align-items-center">
+					<div class="p-1 bg-light rounded me-2 d-flex align-items-center justify-content-center" style="width: 40px; height: 30px;">
+						<img src="assets/img/mitra/logo-sevencyber.png" alt="SevenCyber Security" style="max-width: 100%; max-height: 100%; object-fit: contain;" onerror="this.src='assets/img/logo.png'">
+					</div>
+					<div>
+						<h6 class="mb-0 fw-bold">SevenCyber Security</h6>
+						<span class="text-muted fs-11">BSD City, Tangerang</span>
+					</div>
+				</div>
+			</td>
+			<td>Keamanan Siber & Enkripsi</td>
+			<td>Bima Arista</td>
+			<td><span class="badge bg-dark">Security Partner</span></td>
+			<td>contact@sevencyber.id</td>
+			<td>
+				<a href="email.html" class="btn btn-sm btn-light"><i class="ti ti-mail"></i></a>
+				<a href="invoices.html" class="btn btn-sm btn-light"><i class="ti ti-receipt"></i></a>
+			</td>
+		</tr>
+        
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<!-- Modal Tambah Mitra -->
+	<div class="modal fade" id="tambahMitraModal" tabindex="-1" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content border-0 shadow">
+				<div class="modal-header bg-light">
+					<h5 class="modal-title fw-bold">Tambah Rekanan Mitra Baru</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body p-4">
+					<form id="formTambahMitra" onsubmit="event.preventDefault(); alert('Simulasi: Mitra berhasil didaftarkan ke sistem CRM ANTARA.'); $('#tambahMitraModal').modal('hide');">
+						<div class="mb-3">
+							<label class="form-label fs-13 fw-semibold">Nama Korporasi / Instansi</label>
+							<input type="text" class="form-control" required placeholder="Contoh: PT Kompas Media Nusantara">
+						</div>
+						<div class="mb-3">
+							<label class="form-label fs-13 fw-semibold">Kategori Industri</label>
+							<input type="text" class="form-control" required placeholder="Contoh: Portal Berita &amp; Televisi">
+						</div>
+						<div class="row g-2 mb-3">
+							<div class="col-md-6">
+								<label class="form-label fs-13 fw-semibold">Nama PIC Kontak</label>
+								<input type="text" class="form-control" required placeholder="Nama lengkap">
+							</div>
+							<div class="col-md-6">
+								<label class="form-label fs-13 fw-semibold">Status Kemitraan</label>
+								<select class="form-select">
+									<option>Editorial Partner</option>
+									<option>Strategic Alliance</option>
+									<option>Media Distribution</option>
+									<option>Technology Partner</option>
+								</select>
+							</div>
+						</div>
+						<div class="mb-3">
+							<label class="form-label fs-13 fw-semibold">Email Korespondensi</label>
+							<input type="email" class="form-control" required placeholder="partner@domain.com">
+						</div>
+						<div class="mb-3">
+							<label class="form-label fs-13 fw-semibold">Nomor Telepon</label>
+							<input type="text" class="form-control" required placeholder="+62 21...">
+						</div>
+						<div class="d-flex justify-content-end gap-2">
+							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+							<button type="submit" class="btn btn-primary">Simpan Mitra</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+</div> <!-- /.main-wrapper -->
+
+<!-- Core Scripts -->
+<script src="assets/js/jquery-3.7.1.min.js"></script>
+<script src="assets/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/feather.min.js"></script>
+<script src="assets/js/jquery.slimscroll.min.js"></script>
+<script src="assets/js/jquery.dataTables.min.js"></script>
+<script src="assets/js/dataTables.bootstrap5.min.js"></script>
+<script src="assets/js/moment.min.js"></script>
+<script src="assets/plugins/daterangepicker/daterangepicker.js"></script>
+<script src="assets/js/script.js"></script>
+<script src="../demo-bar/demo-bar.js"></script>
+<script>
+$(document).ready(function() {
+    // Inisialisasi daterangepicker jika ada elemen bookingrange
+    if ($.fn.daterangepicker && $('.bookingrange').length > 0) {
+        $('.bookingrange').daterangepicker({
+            opens: 'left',
+            locale: {
+                format: 'DD/MM/YYYY'
+            }
+        });
+    }
+});
+</script>
+</body>
+</html>

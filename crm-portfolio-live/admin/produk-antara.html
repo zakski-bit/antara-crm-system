@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+	<title>ANTARA CRM - Katalog Produk & Solusi Digital</title>
+	
+	<!-- Favicon -->
+	<link rel="icon" type="image/x-icon" href="../favicon.ico">
+	<link rel="icon" type="image/png" sizes="32x32" href="../favicon.png">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/plugins/icons/feather/feather.css">
+	<link rel="stylesheet" href="assets/plugins/tabler-icons/tabler-icons.css">
+	<link rel="stylesheet" href="assets/plugins/fontawesome/css/fontawesome.min.css">
+	<link rel="stylesheet" href="assets/plugins/fontawesome/css/all.min.css">
+	<link rel="stylesheet" href="assets/plugins/select2/css/select2.min.css">
+	<link rel="stylesheet" href="assets/plugins/daterangepicker/daterangepicker.css">
+	<link rel="stylesheet" href="assets/css/dataTables.bootstrap5.min.css">
+	<link rel="stylesheet" href="assets/css/style.css">
+	<link rel="stylesheet" href="../demo-bar/demo-bar.css">
+
+	<!-- Google Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+	<style>
+		:root {
+			--primary: #D70006;
+			--primary-hover: #B50005;
+			--primary-light: rgba(215, 0, 6, 0.1);
+			--secondary: #24201F;
+			--dark: #24201F;
+			--body-font: 'Outfit', sans-serif;
+			--title-font: 'Roboto', sans-serif;
+		}
+		body {
+			font-family: 'Outfit', sans-serif !important;
+		}
+		h1, h2, h3, h4, h5, h6, .page-header h3, .page-header h4 {
+			font-family: 'Roboto', sans-serif !important;
+		}
+		.sidebar {
+			background-color: #1a1816 !important;
+		}
+		.sidebar .sidebar-menu>ul>li a.active, .sidebar .sidebar-menu>ul>li a:hover {
+			color: #fff !important;
+			background: rgba(215, 0, 6, 0.15) !important;
+		}
+		.sidebar .sidebar-menu>ul>li a.active i, .sidebar .sidebar-menu>ul>li a:hover i {
+			color: #D70006 !important;
+		}
+		.sidebar-logo {
+			background-color: #24201F !important;
+			border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+		}
+		.header {
+			background: #2F3E56 !important;
+			border-bottom: 2px solid #233046 !important;
+		}
+		.header-welcome-message {
+			color: #ffffff;
+			font-weight: 600;
+			font-size: 14px;
+		}
+		.btn-primary {
+			background-color: #D70006 !important;
+			border-color: #D70006 !important;
+		}
+		.btn-primary:hover {
+			background-color: #B50005 !important;
+			border-color: #B50005 !important;
+		}
+		.badge-antara {
+			background-color: rgba(215, 0, 6, 0.12);
+			color: #D70006;
+			font-weight: 600;
+		}
+		.card {
+			border-radius: 8px;
+		}
+		.sparkline {
+			font-size: 11px;
+			color: #64748b;
+			font-weight: 600;
+		}
+		.nav-pills .nav-link.active {
+			background-color: #D70006 !important;
+		}
+	</style>
+</head>
+<body>
+<div class="main-wrapper">
+
+
+	<!-- Header -->
+	<div class="header">
+		<div class="main-header">
+			<div class="header-left">
+				<a href="index.html" class="logo">
+					<img src="assets/img/logo-antaradark.png" alt="Logo Antara" style="height:36px;">
+				</a>
+			</div>
+
+			<a id="mobile_btn" class="mobile_btn" href="#sidebar">
+				<span class="bar-icon">
+					<span></span><span></span><span></span>
+				</span>
+			</a>
+
+			<div class="header-user">
+				<div class="nav user-menu nav-list">
+					<div class="me-auto d-flex align-items-center" id="header-search">
+						<a id="toggle_btn" href="javascript:void(0);" class="btn btn-menubar me-1 text-white">
+							<i class="ti ti-arrow-bar-to-left"></i>
+						</a>
+						<div class="header-welcome-message me-2">
+							Selamat Datang di CRM ANTARA <span style="font-style:italic; font-weight:normal; opacity:0.85;">Information System</span>
+						</div>
+					</div>
+
+					<ul class="nav user-menu">
+						<li class="nav-item dropdown me-2">
+							<a href="javascript:void(0);" class="btn btn-menubar text-white position-relative" data-bs-toggle="dropdown">
+								<i class="ti ti-bell"></i>
+								<span class="badge bg-danger rounded-pill position-absolute top-0 start-100 translate-middle" style="font-size:10px;">3</span>
+							</a>
+							<div class="dropdown-menu dropdown-menu-end p-3 shadow" style="min-width: 280px;">
+								<h6 class="fw-bold mb-2">Notifikasi Sistem</h6>
+								<div class="list-group list-group-flush fs-12">
+									<a href="todo.html" class="list-group-item list-group-item-action px-0 py-2">
+										<i class="ti ti-alert-circle text-danger me-1"></i> 1 Tiket Kritis Memerlukan Tindakan
+									</a>
+									<a href="invoices.html" class="list-group-item list-group-item-action px-0 py-2">
+										<i class="ti ti-file-invoice text-warning me-1"></i> 1 Tagihan Mendekati Jatuh Tempo
+									</a>
+									<a href="email.html" class="list-group-item list-group-item-action px-0 py-2">
+										<i class="ti ti-mail text-primary me-1"></i> 2 Pesan Korespondensi Baru
+									</a>
+								</div>
+							</div>
+						</li>
+						<li class="nav-item dropdown has-arrow main-drop">
+							<a href="javascript:void(0);" class="dropdown-toggle nav-link userset d-flex align-items-center" data-bs-toggle="dropdown">
+								<span class="user-img me-2">
+									<img src="assets/img/profiles/avatar-02.jpg" alt="User" class="rounded-circle" style="width:34px; height:34px;">
+								</span>
+								<div class="user-info text-start d-none d-md-block text-white">
+									<h6 class="mb-0 fs-13 text-white fw-bold">Redaksi Antara</h6>
+									<span class="fs-11 text-white-50">Superadministrator / IT Lead</span>
+								</div>
+							</a>
+							<div class="dropdown-menu menu-drop-user dropdown-menu-end shadow">
+								<div class="profilename p-3 border-bottom">
+									<h6 class="fs-13 fw-bold mb-0">Redaksi Antara</h6>
+									<p class="fs-11 text-muted mb-0">Superadministrator / IT Lead</p>
+								</div>
+								<a class="dropdown-item" href="index.html"><i class="ti ti-layout-dashboard me-2"></i>Dashboard Admin</a>
+								<a class="dropdown-item" href="customer.html"><i class="ti ti-users me-2"></i>Portal Pelanggan</a>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item text-danger" href="../login.html"><i class="ti ti-logout me-2"></i>Keluar (Logout)</a>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- Sidebar -->
+	<div class="sidebar" id="sidebar">
+		<div class="sidebar-logo p-3 d-flex align-items-center justify-content-between">
+			<a href="index.html">
+				<img src="assets/img/logo-antaradark.png" alt="Logo" style="height:32px;">
+			</a>
+		</div>
+
+		<div class="sidebar-inner slimscroll">
+			<div id="sidebar-menu" class="sidebar-menu">
+				<ul>
+					<li class="menu-title"><span>NAVIGASI UTAMA</span></li>
+					<li>
+						<a href="index.html" class="">
+							<i class="ti ti-smart-home"></i><span>Dashboard Admin</span>
+						</a>
+					</li>
+					<li>
+						<a href="customer.html" class="">
+							<i class="ti ti-users"></i><span>Portal Pelanggan/Mitra</span>
+						</a>
+					</li>
+
+					<li class="menu-title"><span>APLIKASI CRM</span></li>
+					<li>
+						<a href="email.html" class="">
+							<i class="ti ti-mail"></i><span>Korespondensi</span><span class="badge bg-danger ms-auto">2</span>
+						</a>
+					</li>
+					<li>
+						<a href="todo.html" class="">
+							<i class="ti ti-checkup-list"></i><span>Tiket Support & To-Do</span>
+						</a>
+					</li>
+
+					<li class="menu-title"><span>KONTEN & RELASI</span></li>
+					<li>
+						<a href="mitra.html" class="">
+							<i class="ti ti-world"></i><span>Mitra & Korporasi</span>
+						</a>
+					</li>
+					<li>
+						<a href="produk-antara.html" class="active">
+							<i class="ti ti-packages"></i><span>Katalog Produk ANTARA</span>
+						</a>
+					</li>
+
+					<li class="menu-title"><span>BILLING & TRANSAKSI</span></li>
+					<li>
+						<a href="invoices.html" class="">
+							<i class="ti ti-file-invoice"></i><span>Tagihan / Invoices</span><span class="badge bg-warning ms-auto text-dark">4</span>
+						</a>
+					</li>
+					<li>
+						<a href="payments.html" class="">
+							<i class="ti ti-credit-card"></i><span>Riwayat Pembayaran</span>
+						</a>
+					</li>
+
+					<li class="menu-title"><span>DEMO PORTOFOLIO</span></li>
+					<li>
+						<a href="../index.html"><i class="ti ti-arrow-back-up"></i><span>Kembali ke Beranda</span></a>
+					</li>
+					<li>
+						<a href="../login.html"><i class="ti ti-lock"></i><span>Halaman Login / OTP</span></a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="page-wrapper">
+		<div class="content container-fluid">
+
+			<!-- Page Header -->
+			<div class="d-md-flex d-block align-items-center justify-content-between page-breadcrumb mb-3">
+				<div class="my-auto mb-2">
+					<h2 class="mb-1">Katalog Produk &amp; Solusi Digital ANTARA</h2>
+					<nav>
+						<ol class="breadcrumb mb-0">
+							<li class="breadcrumb-item"><a href="index.html"><i class="ti ti-smart-home"></i></a></li>
+							<li class="breadcrumb-item">Layanan</li>
+							<li class="breadcrumb-item active" aria-current="page">Produk ANTARA</li>
+						</ol>
+					</nav>
+				</div>
+				<div class="d-flex my-xl-auto right-content align-items-center flex-wrap gap-2">
+					<span class="badge bg-danger py-2 px-3"><i class="ti ti-packages me-1"></i>12 Solusi Digital Aktif</span>
+					<a href="mitra.html" class="btn btn-outline-secondary btn-sm"><i class="ti ti-world me-1"></i>Lihat Jaringan Mitra</a>
+				</div>
+			</div>
+
+			<!-- Filter Bar -->
+			<div class="card shadow-sm border-0 mb-4">
+				<div class="card-body p-3">
+					<div class="row g-2 align-items-center">
+						<div class="col-md-5">
+							<div class="input-group">
+								<span class="input-group-text bg-transparent border-end-0"><i class="ti ti-search"></i></span>
+								<input type="text" id="searchProduct" class="form-control border-start-0" placeholder="Cari nama produk, feed, atau kata kunci...">
+							</div>
+						</div>
+						<div class="col-md-7">
+							<div class="d-flex flex-wrap gap-1 justify-content-md-end" id="categoryFilterButtons">
+								<button class="btn btn-sm btn-danger filter-btn active" data-filter="all">Semua Produk</button>
+								<button class="btn btn-sm btn-outline-secondary filter-btn" data-filter="berita">Berita &amp; Teks</button>
+								<button class="btn btn-sm btn-outline-secondary filter-btn" data-filter="foto-video">Foto &amp; Video</button>
+								<button class="btn btn-sm btn-outline-secondary filter-btn" data-filter="kemitraan">Kemitraan &amp; PR</button>
+								<button class="btn btn-sm btn-outline-secondary filter-btn" data-filter="layanan">Teknologi &amp; Data</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Product Grid -->
+			<div class="row g-4" id="productGridContainer">
+				
+		<div class="col-xl-4 col-md-6 product-card-col" data-cat="kemitraan" data-name="program afiliasi antara">
+			<div class="card shadow-sm border-0 h-100 product-card">
+				<div class="card-body d-flex flex-column p-4">
+					<div class="d-flex align-items-center justify-content-between mb-3">
+						<div class="p-2 bg-light rounded d-flex align-items-center justify-content-center" style="width: 72px; height: 50px;">
+							<img src="assets/img/product/logo-afiliasi-antara.png" alt="Program Afiliasi ANTARA" style="max-width: 100%; max-height: 100%; object-fit: contain;" onerror="this.src='assets/img/logo.png'">
+						</div>
+						<span class="badge badge-antara">Kemitraan Konten</span>
+					</div>
+					<h5 class="fw-bold mb-2">Program Afiliasi ANTARA</h5>
+					<p class="text-muted fs-13 mb-3 flex-grow-0">Sindikasi berita resmi ANTARA lengkap dengan dukungan editorial untuk portal dan platform digital mitra.</p>
+					
+					<div class="bg-light p-3 rounded mb-3 flex-grow-1">
+						<h6 class="fs-12 fw-bold text-uppercase text-secondary mb-2">Fitur Unggulan:</h6>
+						<ul class="list-unstyled fs-12 mb-0">
+							<li class="mb-1"><i class="ti ti-check text-success me-1"></i>Kurasi berita prioritas nasional, daerah, dan tematik real-time.</li><li class="mb-1"><i class="ti ti-check text-success me-1"></i>Widget siap tanam untuk portal web, aplikasi, dan digital signage.</li><li class="mb-1"><i class="ti ti-check text-success me-1"></i>Dukungan editor khusus penyesuaian tone-of-voice mitra media.</li>
+						</ul>
+					</div>
+
+					<div class="d-flex align-items-center justify-content-between mt-auto pt-2 border-top">
+						<button class="btn btn-outline-danger btn-sm" onclick="showProductModal('Program Afiliasi ANTARA', 'Kemitraan Konten', 'Sindikasi berita resmi ANTARA lengkap dengan dukungan editorial untuk portal dan platform digital mitra.', 'Program Afiliasi ANTARA memberikan akses langsung ke jaringan jurnalis nasional kami sehingga mitra dapat memperkaya kanal berita mereka dengan konten kredibel dan terkini. Paket kemitraan mencakup integrasi API, dukungan onboarding, hingga monetisasi bersama.')">
+							<i class="ti ti-info-circle me-1"></i>Detail Spesifikasi
+						</button>
+						<a href="invoices.html" class="btn btn-primary btn-sm">
+							<i class="ti ti-shopping-cart me-1"></i>Order / Berlangganan
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+        
+		<div class="col-xl-4 col-md-6 product-card-col" data-cat="layanan" data-name="antara health communications (ahc)">
+			<div class="card shadow-sm border-0 h-100 product-card">
+				<div class="card-body d-flex flex-column p-4">
+					<div class="d-flex align-items-center justify-content-between mb-3">
+						<div class="p-2 bg-light rounded d-flex align-items-center justify-content-center" style="width: 72px; height: 50px;">
+							<img src="assets/img/product/logo-ahc.png" alt="ANTARA Health Communications (AHC)" style="max-width: 100%; max-height: 100%; object-fit: contain;" onerror="this.src='assets/img/logo.png'">
+						</div>
+						<span class="badge badge-antara">Komunikasi Kesehatan</span>
+					</div>
+					<h5 class="fw-bold mb-2">ANTARA Health Communications (AHC)</h5>
+					<p class="text-muted fs-13 mb-3 flex-grow-0">Repositori konten kesehatan berbasis jurnalisme data untuk mendukung kampanye edukasi institusi kesehatan dan CSR.</p>
+					
+					<div class="bg-light p-3 rounded mb-3 flex-grow-1">
+						<h6 class="fs-12 fw-bold text-uppercase text-secondary mb-2">Fitur Unggulan:</h6>
+						<ul class="list-unstyled fs-12 mb-0">
+							<li class="mb-1"><i class="ti ti-check text-success me-1"></i>Paket artikel, infografik, dan video literasi kesehatan terverifikasi.</li><li class="mb-1"><i class="ti ti-check text-success me-1"></i>Editorial plan bulanan yang disusun bersama tim komunikasi klien.</li><li class="mb-1"><i class="ti ti-check text-success me-1"></i>Distribusi multi-kanal ke jaringan portal ANTARA nasional.</li>
+						</ul>
+					</div>
+
+					<div class="d-flex align-items-center justify-content-between mt-auto pt-2 border-top">
+						<button class="btn btn-outline-danger btn-sm" onclick="showProductModal('ANTARA Health Communications (AHC)', 'Komunikasi Kesehatan', 'Repositori konten kesehatan berbasis jurnalisme data untuk mendukung kampanye edukasi institusi kesehatan dan CSR.', 'AHC memadukan riset kesehatan publik dengan gaya bercerita khas ANTARA sehingga pesan edukasi lebih mudah diterima masyarakat. Ideal untuk kementerian/lembaga, rumah sakit, dan korporasi.')">
+							<i class="ti ti-info-circle me-1"></i>Detail Spesifikasi
+						</button>
+						<a href="invoices.html" class="btn btn-primary btn-sm">
+							<i class="ti ti-shopping-cart me-1"></i>Order / Berlangganan
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+        
+		<div class="col-xl-4 col-md-6 product-card-col" data-cat="kemitraan" data-name="antara event tracking platform (etp)">
+			<div class="card shadow-sm border-0 h-100 product-card">
+				<div class="card-body d-flex flex-column p-4">
+					<div class="d-flex align-items-center justify-content-between mb-3">
+						<div class="p-2 bg-light rounded d-flex align-items-center justify-content-center" style="width: 72px; height: 50px;">
+							<img src="assets/img/product/logo-antara-etp.png" alt="ANTARA Event Tracking Platform (ETP)" style="max-width: 100%; max-height: 100%; object-fit: contain;" onerror="this.src='assets/img/logo.png'">
+						</div>
+						<span class="badge badge-antara">Peliputan & Event</span>
+					</div>
+					<h5 class="fw-bold mb-2">ANTARA Event Tracking Platform (ETP)</h5>
+					<p class="text-muted fs-13 mb-3 flex-grow-0">Platform pemantauan event dan konferensi pers yang mengintegrasikan agenda, liputan, dan distribusi materi publikasi.</p>
+					
+					<div class="bg-light p-3 rounded mb-3 flex-grow-1">
+						<h6 class="fs-12 fw-bold text-uppercase text-secondary mb-2">Fitur Unggulan:</h6>
+						<ul class="list-unstyled fs-12 mb-0">
+							<li class="mb-1"><i class="ti ti-check text-success me-1"></i>Dashboard agenda nasional dan korporasi untuk newsroom dan mitra.</li><li class="mb-1"><i class="ti ti-check text-success me-1"></i>Manajemen kredensial media dengan notifikasi otomatis.</li><li class="mb-1"><i class="ti ti-check text-success me-1"></i>Distribusi sertifikat kehadiran dan materi liputan secara digital.</li>
+						</ul>
+					</div>
+
+					<div class="d-flex align-items-center justify-content-between mt-auto pt-2 border-top">
+						<button class="btn btn-outline-danger btn-sm" onclick="showProductModal('ANTARA Event Tracking Platform (ETP)', 'Peliputan & Event', 'Platform pemantauan event dan konferensi pers yang mengintegrasikan agenda, liputan, dan distribusi materi publikasi.', 'ANTARA ETP membantu tim PR dan penyelenggara event mengelola akreditasi media, publikasi jadwal, hingga distribusi rilis dan materi visual pasca acara.')">
+							<i class="ti ti-info-circle me-1"></i>Detail Spesifikasi
+						</button>
+						<a href="invoices.html" class="btn btn-primary btn-sm">
+							<i class="ti ti-shopping-cart me-1"></i>Order / Berlangganan
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+        
+		<div class="col-xl-4 col-md-6 product-card-col" data-cat="foto-video" data-name="antara foto">
+			<div class="card shadow-sm border-0 h-100 product-card">
+				<div class="card-body d-flex flex-column p-4">
+					<div class="d-flex align-items-center justify-content-between mb-3">
+						<div class="p-2 bg-light rounded d-flex align-items-center justify-content-center" style="width: 72px; height: 50px;">
+							<img src="assets/img/product/logo-antara-foto.png" alt="ANTARA Foto" style="max-width: 100%; max-height: 100%; object-fit: contain;" onerror="this.src='assets/img/logo.png'">
+						</div>
+						<span class="badge badge-antara">Konten Visual</span>
+					</div>
+					<h5 class="fw-bold mb-2">ANTARA Foto</h5>
+					<p class="text-muted fs-13 mb-3 flex-grow-0">Layanan foto jurnalistik dan arsip visual Indonesia dengan lisensi fleksibel untuk media dan korporasi.</p>
+					
+					<div class="bg-light p-3 rounded mb-3 flex-grow-1">
+						<h6 class="fs-12 fw-bold text-uppercase text-secondary mb-2">Fitur Unggulan:</h6>
+						<ul class="list-unstyled fs-12 mb-0">
+							<li class="mb-1"><i class="ti ti-check text-success me-1"></i>Lebih dari satu juta foto dengan metadata lengkap dan kontinu diperbarui.</li><li class="mb-1"><i class="ti ti-check text-success me-1"></i>Pilihan lisensi editorial, komersial, dan korporasi.</li><li class="mb-1"><i class="ti ti-check text-success me-1"></i>Tim fotografer nasional siap membantu permintaan pemotretan khusus.</li>
+						</ul>
+					</div>
+
+					<div class="d-flex align-items-center justify-content-between mt-auto pt-2 border-top">
+						<button class="btn btn-outline-danger btn-sm" onclick="showProductModal('ANTARA Foto', 'Konten Visual', 'Layanan foto jurnalistik dan arsip visual Indonesia dengan lisensi fleksibel untuk media dan korporasi.', 'ANTARA Foto menyajikan dokumentasi bersejarah dan liputan terkini dalam resolusi tinggi. Sistem penelusuran memudahkan kurator konten menemukan materi visual.')">
+							<i class="ti ti-info-circle me-1"></i>Detail Spesifikasi
+						</button>
+						<a href="invoices.html" class="btn btn-primary btn-sm">
+							<i class="ti ti-shopping-cart me-1"></i>Order / Berlangganan
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+        
+		<div class="col-xl-4 col-md-6 product-card-col" data-cat="berita" data-name="antara news wire">
+			<div class="card shadow-sm border-0 h-100 product-card">
+				<div class="card-body d-flex flex-column p-4">
+					<div class="d-flex align-items-center justify-content-between mb-3">
+						<div class="p-2 bg-light rounded d-flex align-items-center justify-content-center" style="width: 72px; height: 50px;">
+							<img src="assets/img/product/logo-antara-news.png" alt="ANTARA News Wire" style="max-width: 100%; max-height: 100%; object-fit: contain;" onerror="this.src='assets/img/logo.png'">
+						</div>
+						<span class="badge badge-antara">Portal Berita & Sindikasi</span>
+					</div>
+					<h5 class="fw-bold mb-2">ANTARA News Wire</h5>
+					<p class="text-muted fs-13 mb-3 flex-grow-0">Portal berita resmi Republik Indonesia dengan update 24/7 dalam bahasa Indonesia dan Inggris.</p>
+					
+					<div class="bg-light p-3 rounded mb-3 flex-grow-1">
+						<h6 class="fs-12 fw-bold text-uppercase text-secondary mb-2">Fitur Unggulan:</h6>
+						<ul class="list-unstyled fs-12 mb-0">
+							<li class="mb-1"><i class="ti ti-check text-success me-1"></i>Jaringan koresponden di 34 provinsi dan 13 biro luar negeri.</li><li class="mb-1"><i class="ti ti-check text-success me-1"></i>Ragam kanal tematik ekonomi, politik, olahraga, dan industri kreatif.</li><li class="mb-1"><i class="ti ti-check text-success me-1"></i>Integrasi API untuk kebutuhan embed headline dan RSS khusus.</li>
+						</ul>
+					</div>
+
+					<div class="d-flex align-items-center justify-content-between mt-auto pt-2 border-top">
+						<button class="btn btn-outline-danger btn-sm" onclick="showProductModal('ANTARA News Wire', 'Portal Berita & Sindikasi', 'Portal berita resmi Republik Indonesia dengan update 24/7 dalam bahasa Indonesia dan Inggris.', 'Sebagai kantor berita nasional, ANTARA News memastikan akurasi, kecepatan, dan kedalaman setiap publikasi berita.')">
+							<i class="ti ti-info-circle me-1"></i>Detail Spesifikasi
+						</button>
+						<a href="invoices.html" class="btn btn-primary btn-sm">
+							<i class="ti ti-shopping-cart me-1"></i>Order / Berlangganan
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+        
+		<div class="col-xl-4 col-md-6 product-card-col" data-cat="foto-video" data-name="antara tv & video news">
+			<div class="card shadow-sm border-0 h-100 product-card">
+				<div class="card-body d-flex flex-column p-4">
+					<div class="d-flex align-items-center justify-content-between mb-3">
+						<div class="p-2 bg-light rounded d-flex align-items-center justify-content-center" style="width: 72px; height: 50px;">
+							<img src="assets/img/product/logo-antara-tv.png" alt="ANTARA TV & Video News" style="max-width: 100%; max-height: 100%; object-fit: contain;" onerror="this.src='assets/img/logo.png'">
+						</div>
+						<span class="badge badge-antara">Broadcasting & Video</span>
+					</div>
+					<h5 class="fw-bold mb-2">ANTARA TV & Video News</h5>
+					<p class="text-muted fs-13 mb-3 flex-grow-0">Pasokan paket video berita broadcast-ready 1080p/4K untuk stasiun televisi, OTT, dan saluran media sosial.</p>
+					
+					<div class="bg-light p-3 rounded mb-3 flex-grow-1">
+						<h6 class="fs-12 fw-bold text-uppercase text-secondary mb-2">Fitur Unggulan:</h6>
+						<ul class="list-unstyled fs-12 mb-0">
+							<li class="mb-1"><i class="ti ti-check text-success me-1"></i>Video berita harian dengan voice-over atau clean audio (natural sound).</li><li class="mb-1"><i class="ti ti-check text-success me-1"></i>Format siap tayang untuk format horizontal TV dan format vertikal media sosial.</li><li class="mb-1"><i class="ti ti-check text-success me-1"></i>Dukungan live streaming konferensi pers dan agenda nasional.</li>
+						</ul>
+					</div>
+
+					<div class="d-flex align-items-center justify-content-between mt-auto pt-2 border-top">
+						<button class="btn btn-outline-danger btn-sm" onclick="showProductModal('ANTARA TV & Video News', 'Broadcasting & Video', 'Pasokan paket video berita broadcast-ready 1080p/4K untuk stasiun televisi, OTT, dan saluran media sosial.', 'ANTARA TV melayani kebutuhan stasiun televisi nasional, regional, maupun portal web yang membutuhkan pasokan video berita terkini dengan izin siar resmi.')">
+							<i class="ti ti-info-circle me-1"></i>Detail Spesifikasi
+						</button>
+						<a href="invoices.html" class="btn btn-primary btn-sm">
+							<i class="ti ti-shopping-cart me-1"></i>Order / Berlangganan
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+        
+		<div class="col-xl-4 col-md-6 product-card-col" data-cat="layanan" data-name="bloomberg antara feed">
+			<div class="card shadow-sm border-0 h-100 product-card">
+				<div class="card-body d-flex flex-column p-4">
+					<div class="d-flex align-items-center justify-content-between mb-3">
+						<div class="p-2 bg-light rounded d-flex align-items-center justify-content-center" style="width: 72px; height: 50px;">
+							<img src="assets/img/product/logo-bloomberg.png" alt="Bloomberg ANTARA Feed" style="max-width: 100%; max-height: 100%; object-fit: contain;" onerror="this.src='assets/img/logo.png'">
+						</div>
+						<span class="badge badge-antara">Media & Data Finansial</span>
+					</div>
+					<h5 class="fw-bold mb-2">Bloomberg ANTARA Feed</h5>
+					<p class="text-muted fs-13 mb-3 flex-grow-0">Integrasi berita pasar modal, bursa komoditas, dan pergerakan makroekonomi internasional berstandar Bloomberg.</p>
+					
+					<div class="bg-light p-3 rounded mb-3 flex-grow-1">
+						<h6 class="fs-12 fw-bold text-uppercase text-secondary mb-2">Fitur Unggulan:</h6>
+						<ul class="list-unstyled fs-12 mb-0">
+							<li class="mb-1"><i class="ti ti-check text-success me-1"></i>Data indeks bursa saham dan valuta asing terhubung langsung.</li><li class="mb-1"><i class="ti ti-check text-success me-1"></i>Analisis mendalam dari analis ekonomi global.</li><li class="mb-1"><i class="ti ti-check text-success me-1"></i>Terminal berita pasar uang untuk korporasi perbankan.</li>
+						</ul>
+					</div>
+
+					<div class="d-flex align-items-center justify-content-between mt-auto pt-2 border-top">
+						<button class="btn btn-outline-danger btn-sm" onclick="showProductModal('Bloomberg ANTARA Feed', 'Media & Data Finansial', 'Integrasi berita pasar modal, bursa komoditas, dan pergerakan makroekonomi internasional berstandar Bloomberg.', 'Kolaborasi strategis LKBN ANTARA dengan Bloomberg memberikan keunggulan informasi bisnis terpercaya untuk para pelaku industri pasar modal di Indonesia.')">
+							<i class="ti ti-info-circle me-1"></i>Detail Spesifikasi
+						</button>
+						<a href="invoices.html" class="btn btn-primary btn-sm">
+							<i class="ti ti-shopping-cart me-1"></i>Order / Berlangganan
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+        
+		<div class="col-xl-4 col-md-6 product-card-col" data-cat="kemitraan" data-name="branda (brand activation & pr)">
+			<div class="card shadow-sm border-0 h-100 product-card">
+				<div class="card-body d-flex flex-column p-4">
+					<div class="d-flex align-items-center justify-content-between mb-3">
+						<div class="p-2 bg-light rounded d-flex align-items-center justify-content-center" style="width: 72px; height: 50px;">
+							<img src="assets/img/product/logo-branda.png" alt="Branda (Brand Activation & PR)" style="max-width: 100%; max-height: 100%; object-fit: contain;" onerror="this.src='assets/img/logo.png'">
+						</div>
+						<span class="badge badge-antara">Publisitas & PR Wire</span>
+					</div>
+					<h5 class="fw-bold mb-2">Branda (Brand Activation & PR)</h5>
+					<p class="text-muted fs-13 mb-3 flex-grow-0">Layanan diseminasi siaran pers ke ratusan media massa terverifikasi Dewan Pers di seluruh Indonesia.</p>
+					
+					<div class="bg-light p-3 rounded mb-3 flex-grow-1">
+						<h6 class="fs-12 fw-bold text-uppercase text-secondary mb-2">Fitur Unggulan:</h6>
+						<ul class="list-unstyled fs-12 mb-0">
+							<li class="mb-1"><i class="ti ti-check text-success me-1"></i>Jaminan publikasi di jaringan media cetak, online, dan televisi rekanan.</li><li class="mb-1"><i class="ti ti-check text-success me-1"></i>Laporan clipping berita komprehensif dengan metrik PR Value.</li><li class="mb-1"><i class="ti ti-check text-success me-1"></i>Bantuan copywriting dan kurasi sudut pandang berita pers.</li>
+						</ul>
+					</div>
+
+					<div class="d-flex align-items-center justify-content-between mt-auto pt-2 border-top">
+						<button class="btn btn-outline-danger btn-sm" onclick="showProductModal('Branda (Brand Activation & PR)', 'Publisitas & PR Wire', 'Layanan diseminasi siaran pers ke ratusan media massa terverifikasi Dewan Pers di seluruh Indonesia.', 'Branda adalah solusi tepat bagi instansi pemerintah dan perusahaan yang ingin menyuarakan pencapaian mereka kepada publik luas secara efektif dan terukur.')">
+							<i class="ti ti-info-circle me-1"></i>Detail Spesifikasi
+						</button>
+						<a href="invoices.html" class="btn btn-primary btn-sm">
+							<i class="ti ti-shopping-cart me-1"></i>Order / Berlangganan
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+        
+		<div class="col-xl-4 col-md-6 product-card-col" data-cat="layanan" data-name="hcm ads media">
+			<div class="card shadow-sm border-0 h-100 product-card">
+				<div class="card-body d-flex flex-column p-4">
+					<div class="d-flex align-items-center justify-content-between mb-3">
+						<div class="p-2 bg-light rounded d-flex align-items-center justify-content-center" style="width: 72px; height: 50px;">
+							<img src="assets/img/product/logo-hcm-ads-media.png" alt="HCM Ads Media" style="max-width: 100%; max-height: 100%; object-fit: contain;" onerror="this.src='assets/img/logo.png'">
+						</div>
+						<span class="badge badge-antara">Jaringan Iklan Digital</span>
+					</div>
+					<h5 class="fw-bold mb-2">HCM Ads Media</h5>
+					<p class="text-muted fs-13 mb-3 flex-grow-0">Jaringan iklan programmatic dan programmatic display di portal-portal berita terkemuka Asia Tenggara.</p>
+					
+					<div class="bg-light p-3 rounded mb-3 flex-grow-1">
+						<h6 class="fs-12 fw-bold text-uppercase text-secondary mb-2">Fitur Unggulan:</h6>
+						<ul class="list-unstyled fs-12 mb-0">
+							<li class="mb-1"><i class="ti ti-check text-success me-1"></i>Jangkauan audiens puluhan juta pembaca aktif setiap hari.</li><li class="mb-1"><i class="ti ti-check text-success me-1"></i>Penargetan demografis dan geospasial presisi tinggi.</li><li class="mb-1"><i class="ti ti-check text-success me-1"></i>Format banner rich media dan video in-stream interaktif.</li>
+						</ul>
+					</div>
+
+					<div class="d-flex align-items-center justify-content-between mt-auto pt-2 border-top">
+						<button class="btn btn-outline-danger btn-sm" onclick="showProductModal('HCM Ads Media', 'Jaringan Iklan Digital', 'Jaringan iklan programmatic dan programmatic display di portal-portal berita terkemuka Asia Tenggara.', 'HCM Ads Media mengoptimalkan performa kampanye pemasaran digital klien dengan penempatan iklan yang aman bagi reputasi brand (brand safe).')">
+							<i class="ti ti-info-circle me-1"></i>Detail Spesifikasi
+						</button>
+						<a href="invoices.html" class="btn btn-primary btn-sm">
+							<i class="ti ti-shopping-cart me-1"></i>Order / Berlangganan
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+        
+		<div class="col-xl-4 col-md-6 product-card-col" data-cat="layanan" data-name="imcs (integrated media content)">
+			<div class="card shadow-sm border-0 h-100 product-card">
+				<div class="card-body d-flex flex-column p-4">
+					<div class="d-flex align-items-center justify-content-between mb-3">
+						<div class="p-2 bg-light rounded d-flex align-items-center justify-content-center" style="width: 72px; height: 50px;">
+							<img src="assets/img/product/logo-imcs.png" alt="IMCS (Integrated Media Content)" style="max-width: 100%; max-height: 100%; object-fit: contain;" onerror="this.src='assets/img/logo.png'">
+						</div>
+						<span class="badge badge-antara">Platform Redaksi & CMS</span>
+					</div>
+					<h5 class="fw-bold mb-2">IMCS (Integrated Media Content)</h5>
+					<p class="text-muted fs-13 mb-3 flex-grow-0">Sistem manajemen konten terpadu untuk newsroom, kurasi multi-format teks, foto, infografik, dan video.</p>
+					
+					<div class="bg-light p-3 rounded mb-3 flex-grow-1">
+						<h6 class="fs-12 fw-bold text-uppercase text-secondary mb-2">Fitur Unggulan:</h6>
+						<ul class="list-unstyled fs-12 mb-0">
+							<li class="mb-1"><i class="ti ti-check text-success me-1"></i>Workflow editorial berjenjang (Reporter, Redaktur, Redpel, Pemred).</li><li class="mb-1"><i class="ti ti-check text-success me-1"></i>Pencarian cerdas aset arsip dengan tagging otomatis AI.</li><li class="mb-1"><i class="ti ti-check text-success me-1"></i>Penerbitan multi-kanal otomatis ke website dan media sosial.</li>
+						</ul>
+					</div>
+
+					<div class="d-flex align-items-center justify-content-between mt-auto pt-2 border-top">
+						<button class="btn btn-outline-danger btn-sm" onclick="showProductModal('IMCS (Integrated Media Content)', 'Platform Redaksi & CMS', 'Sistem manajemen konten terpadu untuk newsroom, kurasi multi-format teks, foto, infografik, dan video.', 'IMCS digunakan oleh kantor berita dan media partner untuk meningkatkan efisiensi proses peliputan hingga penerbitan secara terintegrasi.')">
+							<i class="ti ti-info-circle me-1"></i>Detail Spesifikasi
+						</button>
+						<a href="invoices.html" class="btn btn-primary btn-sm">
+							<i class="ti ti-shopping-cart me-1"></i>Order / Berlangganan
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+        
+		<div class="col-xl-4 col-md-6 product-card-col" data-cat="layanan" data-name="it hardware rental & cloud">
+			<div class="card shadow-sm border-0 h-100 product-card">
+				<div class="card-body d-flex flex-column p-4">
+					<div class="d-flex align-items-center justify-content-between mb-3">
+						<div class="p-2 bg-light rounded d-flex align-items-center justify-content-center" style="width: 72px; height: 50px;">
+							<img src="assets/img/product/LOGO-IT-HARDWARE-RENTAL.png" alt="IT Hardware Rental & Cloud" style="max-width: 100%; max-height: 100%; object-fit: contain;" onerror="this.src='assets/img/logo.png'">
+						</div>
+						<span class="badge badge-antara">Infrastruktur IT</span>
+					</div>
+					<h5 class="fw-bold mb-2">IT Hardware Rental & Cloud</h5>
+					<p class="text-muted fs-13 mb-3 flex-grow-0">Penyediaan server, perangkat broadcast lapangan, workstation redaksi, dan cloud backup bersertifikasi.</p>
+					
+					<div class="bg-light p-3 rounded mb-3 flex-grow-1">
+						<h6 class="fs-12 fw-bold text-uppercase text-secondary mb-2">Fitur Unggulan:</h6>
+						<ul class="list-unstyled fs-12 mb-0">
+							<li class="mb-1"><i class="ti ti-check text-success me-1"></i>Dukungan teknisi onsite 24/7 dan penggantian unit cepat (SLA 4 Jam).</li><li class="mb-1"><i class="ti ti-check text-success me-1"></i>Spesifikasi komputasi tinggi untuk rendering video 4K dan pemrosesan foto.</li><li class="mb-1"><i class="ti ti-check text-success me-1"></i>Konektivitas satelit dan microwave link cadangan untuk event luar ruang.</li>
+						</ul>
+					</div>
+
+					<div class="d-flex align-items-center justify-content-between mt-auto pt-2 border-top">
+						<button class="btn btn-outline-danger btn-sm" onclick="showProductModal('IT Hardware Rental & Cloud', 'Infrastruktur IT', 'Penyediaan server, perangkat broadcast lapangan, workstation redaksi, dan cloud backup bersertifikasi.', 'Layanan sewa infrastruktur teknologi informasi LKBN ANTARA mendukung kelancaran operasional media centre pada event internasional seperti KTT G20 dan ASEAN Summit.')">
+							<i class="ti ti-info-circle me-1"></i>Detail Spesifikasi
+						</button>
+						<a href="invoices.html" class="btn btn-primary btn-sm">
+							<i class="ti ti-shopping-cart me-1"></i>Order / Berlangganan
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+        
+		<div class="col-xl-4 col-md-6 product-card-col" data-cat="berita" data-name="reuters news agency feed">
+			<div class="card shadow-sm border-0 h-100 product-card">
+				<div class="card-body d-flex flex-column p-4">
+					<div class="d-flex align-items-center justify-content-between mb-3">
+						<div class="p-2 bg-light rounded d-flex align-items-center justify-content-center" style="width: 72px; height: 50px;">
+							<img src="assets/img/product/logo-reuters.png" alt="Reuters News Agency Feed" style="max-width: 100%; max-height: 100%; object-fit: contain;" onerror="this.src='assets/img/logo.png'">
+						</div>
+						<span class="badge badge-antara">Kemitraan Global</span>
+					</div>
+					<h5 class="fw-bold mb-2">Reuters News Agency Feed</h5>
+					<p class="text-muted fs-13 mb-3 flex-grow-0">Kanal distribusi sindikasi informasi global melalui aliansi resmi LKBN ANTARA dengan Reuters News Agency.</p>
+					
+					<div class="bg-light p-3 rounded mb-3 flex-grow-1">
+						<h6 class="fs-12 fw-bold text-uppercase text-secondary mb-2">Fitur Unggulan:</h6>
+						<ul class="list-unstyled fs-12 mb-0">
+							<li class="mb-1"><i class="ti ti-check text-success me-1"></i>Liputan investigasi dan peristiwa dunia dari wartawan Reuters di 200 lokasi.</li><li class="mb-1"><i class="ti ti-check text-success me-1"></i>Feed teks dwibahasa (Inggris & terjemahan Bahasa Indonesia).</li><li class="mb-1"><i class="ti ti-check text-success me-1"></i>Foto arsip internasional dan infografis interaktif terkini.</li>
+						</ul>
+					</div>
+
+					<div class="d-flex align-items-center justify-content-between mt-auto pt-2 border-top">
+						<button class="btn btn-outline-danger btn-sm" onclick="showProductModal('Reuters News Agency Feed', 'Kemitraan Global', 'Kanal distribusi sindikasi informasi global melalui aliansi resmi LKBN ANTARA dengan Reuters News Agency.', 'Menghubungkan ekosistem media Indonesia dengan dinamika internasional terhangat secara real-time melalui jaringan tepercaya Reuters.')">
+							<i class="ti ti-info-circle me-1"></i>Detail Spesifikasi
+						</button>
+						<a href="invoices.html" class="btn btn-primary btn-sm">
+							<i class="ti ti-shopping-cart me-1"></i>Order / Berlangganan
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+        
+			</div>
+
+		</div>
+	</div>
+
+	<!-- Product Detail Modal -->
+	<div class="modal fade" id="productDetailModal" tabindex="-1" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered modal-lg">
+			<div class="modal-content border-0 shadow">
+				<div class="modal-header bg-light">
+					<h5 class="modal-title fw-bold" id="modalProdTitle">Detail Produk</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body p-4">
+					<div class="mb-3">
+						<span class="badge badge-antara" id="modalProdCat">Kategori</span>
+					</div>
+					<h4 class="fw-bold mb-2 text-dark" id="modalProdNameHeading">Nama Produk</h4>
+					<p class="text-muted fs-14 mb-3" id="modalProdSummary">Ringkasan</p>
+					
+					<hr>
+					
+					<h6 class="fw-bold mb-2">Penjelasan Teknis &amp; Lingkup Layanan:</h6>
+					<p class="fs-13 text-secondary mb-3" id="modalProdDetails">Deskripsi</p>
+
+					<div class="alert alert-info border-0 d-flex align-items-center mb-0">
+						<i class="ti ti-info-circle fs-20 me-2"></i>
+						<span class="fs-12">Layanan ini dilengkapi dengan Service Level Agreement (SLA) uptime 99.9% dan dukungan integrasi RESTful API / RSS feed untuk newsroom mitra.</span>
+					</div>
+				</div>
+				<div class="modal-footer bg-light">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+					<a href="invoices.html" class="btn btn-primary"><i class="ti ti-receipt me-1"></i>Buat Penawaran / Invoice</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+</div> <!-- /.main-wrapper -->
+
+<!-- Core Scripts -->
+<script src="assets/js/jquery-3.7.1.min.js"></script>
+<script src="assets/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/feather.min.js"></script>
+<script src="assets/js/jquery.slimscroll.min.js"></script>
+<script src="assets/js/jquery.dataTables.min.js"></script>
+<script src="assets/js/dataTables.bootstrap5.min.js"></script>
+<script src="assets/js/moment.min.js"></script>
+<script src="assets/plugins/daterangepicker/daterangepicker.js"></script>
+<script src="assets/js/script.js"></script>
+<script src="../demo-bar/demo-bar.js"></script>
+<script>
+$(document).ready(function() {
+    // Inisialisasi daterangepicker jika ada elemen bookingrange
+    if ($.fn.daterangepicker && $('.bookingrange').length > 0) {
+        $('.bookingrange').daterangepicker({
+            opens: 'left',
+            locale: {
+                format: 'DD/MM/YYYY'
+            }
+        });
+    }
+});
+</script>
+</body>
+</html>
+
+
+<script>
+function showProductModal(name, category, summary, details) {
+	$('#modalProdTitle').text(name);
+	$('#modalProdNameHeading').text(name);
+	$('#modalProdCat').text(category);
+	$('#modalProdSummary').text(summary);
+	$('#modalProdDetails').text(details);
+	var myModal = new bootstrap.Modal(document.getElementById('productDetailModal'));
+	myModal.show();
+}
+
+$(document).ready(function() {
+	// Search filter
+	$('#searchProduct').on('keyup', function() {
+		var val = $(this).val().toLowerCase();
+		$('.product-card-col').each(function() {
+			var text = $(this).data('name');
+			if (text.indexOf(val) > -1) {
+				$(this).show();
+			} else {
+				$(this).hide();
+			}
+		});
+	});
+
+	// Category filter
+	$('.filter-btn').on('click', function() {
+		$('.filter-btn').removeClass('btn-danger active').addClass('btn-outline-secondary');
+		$(this).removeClass('btn-outline-secondary').addClass('btn-danger active');
+		var cat = $(this).data('filter');
+		if (cat === 'all') {
+			$('.product-card-col').show();
+		} else {
+			$('.product-card-col').each(function() {
+				if ($(this).data('cat') === cat) {
+					$(this).show();
+				} else {
+					$(this).hide();
+				}
+			});
+		}
+	});
+});
+</script>

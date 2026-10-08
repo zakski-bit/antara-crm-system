@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+	<title>ANTARA CRM - Tiket Support & To-Do Backlog</title>
+	
+	<!-- Favicon -->
+	<link rel="icon" type="image/x-icon" href="../favicon.ico">
+	<link rel="icon" type="image/png" sizes="32x32" href="../favicon.png">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/plugins/icons/feather/feather.css">
+	<link rel="stylesheet" href="assets/plugins/tabler-icons/tabler-icons.css">
+	<link rel="stylesheet" href="assets/plugins/fontawesome/css/fontawesome.min.css">
+	<link rel="stylesheet" href="assets/plugins/fontawesome/css/all.min.css">
+	<link rel="stylesheet" href="assets/plugins/select2/css/select2.min.css">
+	<link rel="stylesheet" href="assets/plugins/daterangepicker/daterangepicker.css">
+	<link rel="stylesheet" href="assets/css/dataTables.bootstrap5.min.css">
+	<link rel="stylesheet" href="assets/css/style.css">
+	<link rel="stylesheet" href="../demo-bar/demo-bar.css">
+
+	<!-- Google Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+	<style>
+		:root {
+			--primary: #D70006;
+			--primary-hover: #B50005;
+			--primary-light: rgba(215, 0, 6, 0.1);
+			--secondary: #24201F;
+			--dark: #24201F;
+			--body-font: 'Outfit', sans-serif;
+			--title-font: 'Roboto', sans-serif;
+		}
+		body {
+			font-family: 'Outfit', sans-serif !important;
+		}
+		h1, h2, h3, h4, h5, h6, .page-header h3, .page-header h4 {
+			font-family: 'Roboto', sans-serif !important;
+		}
+		.sidebar {
+			background-color: #1a1816 !important;
+		}
+		.sidebar .sidebar-menu>ul>li a.active, .sidebar .sidebar-menu>ul>li a:hover {
+			color: #fff !important;
+			background: rgba(215, 0, 6, 0.15) !important;
+		}
+		.sidebar .sidebar-menu>ul>li a.active i, .sidebar .sidebar-menu>ul>li a:hover i {
+			color: #D70006 !important;
+		}
+		.sidebar-logo {
+			background-color: #24201F !important;
+			border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+		}
+		.header {
+			background: #2F3E56 !important;
+			border-bottom: 2px solid #233046 !important;
+		}
+		.header-welcome-message {
+			color: #ffffff;
+			font-weight: 600;
+			font-size: 14px;
+		}
+		.btn-primary {
+			background-color: #D70006 !important;
+			border-color: #D70006 !important;
+		}
+		.btn-primary:hover {
+			background-color: #B50005 !important;
+			border-color: #B50005 !important;
+		}
+		.badge-antara {
+			background-color: rgba(215, 0, 6, 0.12);
+			color: #D70006;
+			font-weight: 600;
+		}
+		.card {
+			border-radius: 8px;
+		}
+		.sparkline {
+			font-size: 11px;
+			color: #64748b;
+			font-weight: 600;
+		}
+		.nav-pills .nav-link.active {
+			background-color: #D70006 !important;
+		}
+	</style>
+</head>
+<body>
+<div class="main-wrapper">
+
+
+	<!-- Header -->
+	<div class="header">
+		<div class="main-header">
+			<div class="header-left">
+				<a href="index.html" class="logo">
+					<img src="assets/img/logo-antaradark.png" alt="Logo Antara" style="height:36px;">
+				</a>
+			</div>
+
+			<a id="mobile_btn" class="mobile_btn" href="#sidebar">
+				<span class="bar-icon">
+					<span></span><span></span><span></span>
+				</span>
+			</a>
+
+			<div class="header-user">
+				<div class="nav user-menu nav-list">
+					<div class="me-auto d-flex align-items-center" id="header-search">
+						<a id="toggle_btn" href="javascript:void(0);" class="btn btn-menubar me-1 text-white">
+							<i class="ti ti-arrow-bar-to-left"></i>
+						</a>
+						<div class="header-welcome-message me-2">
+							Selamat Datang di CRM ANTARA <span style="font-style:italic; font-weight:normal; opacity:0.85;">Information System</span>
+						</div>
+					</div>
+
+					<ul class="nav user-menu">
+						<li class="nav-item dropdown me-2">
+							<a href="javascript:void(0);" class="btn btn-menubar text-white position-relative" data-bs-toggle="dropdown">
+								<i class="ti ti-bell"></i>
+								<span class="badge bg-danger rounded-pill position-absolute top-0 start-100 translate-middle" style="font-size:10px;">3</span>
+							</a>
+							<div class="dropdown-menu dropdown-menu-end p-3 shadow" style="min-width: 280px;">
+								<h6 class="fw-bold mb-2">Notifikasi Sistem</h6>
+								<div class="list-group list-group-flush fs-12">
+									<a href="todo.html" class="list-group-item list-group-item-action px-0 py-2">
+										<i class="ti ti-alert-circle text-danger me-1"></i> 1 Tiket Kritis Memerlukan Tindakan
+									</a>
+									<a href="invoices.html" class="list-group-item list-group-item-action px-0 py-2">
+										<i class="ti ti-file-invoice text-warning me-1"></i> 1 Tagihan Mendekati Jatuh Tempo
+									</a>
+									<a href="email.html" class="list-group-item list-group-item-action px-0 py-2">
+										<i class="ti ti-mail text-primary me-1"></i> 2 Pesan Korespondensi Baru
+									</a>
+								</div>
+							</div>
+						</li>
+						<li class="nav-item dropdown has-arrow main-drop">
+							<a href="javascript:void(0);" class="dropdown-toggle nav-link userset d-flex align-items-center" data-bs-toggle="dropdown">
+								<span class="user-img me-2">
+									<img src="assets/img/profiles/avatar-02.jpg" alt="User" class="rounded-circle" style="width:34px; height:34px;">
+								</span>
+								<div class="user-info text-start d-none d-md-block text-white">
+									<h6 class="mb-0 fs-13 text-white fw-bold">Redaksi Antara</h6>
+									<span class="fs-11 text-white-50">Superadministrator / IT Lead</span>
+								</div>
+							</a>
+							<div class="dropdown-menu menu-drop-user dropdown-menu-end shadow">
+								<div class="profilename p-3 border-bottom">
+									<h6 class="fs-13 fw-bold mb-0">Redaksi Antara</h6>
+									<p class="fs-11 text-muted mb-0">Superadministrator / IT Lead</p>
+								</div>
+								<a class="dropdown-item" href="index.html"><i class="ti ti-layout-dashboard me-2"></i>Dashboard Admin</a>
+								<a class="dropdown-item" href="customer.html"><i class="ti ti-users me-2"></i>Portal Pelanggan</a>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item text-danger" href="../login.html"><i class="ti ti-logout me-2"></i>Keluar (Logout)</a>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- Sidebar -->
+	<div class="sidebar" id="sidebar">
+		<div class="sidebar-logo p-3 d-flex align-items-center justify-content-between">
+			<a href="index.html">
+				<img src="assets/img/logo-antaradark.png" alt="Logo" style="height:32px;">
+			</a>
+		</div>
+
+		<div class="sidebar-inner slimscroll">
+			<div id="sidebar-menu" class="sidebar-menu">
+				<ul>
+					<li class="menu-title"><span>NAVIGASI UTAMA</span></li>
+					<li>
+						<a href="index.html" class="">
+							<i class="ti ti-smart-home"></i><span>Dashboard Admin</span>
+						</a>
+					</li>
+					<li>
+						<a href="customer.html" class="">
+							<i class="ti ti-users"></i><span>Portal Pelanggan/Mitra</span>
+						</a>
+					</li>
+
+					<li class="menu-title"><span>APLIKASI CRM</span></li>
+					<li>
+						<a href="email.html" class="">
+							<i class="ti ti-mail"></i><span>Korespondensi</span><span class="badge bg-danger ms-auto">2</span>
+						</a>
+					</li>
+					<li>
+						<a href="todo.html" class="active">
+							<i class="ti ti-checkup-list"></i><span>Tiket Support & To-Do</span>
+						</a>
+					</li>
+
+					<li class="menu-title"><span>KONTEN & RELASI</span></li>
+					<li>
+						<a href="mitra.html" class="">
+							<i class="ti ti-world"></i><span>Mitra & Korporasi</span>
+						</a>
+					</li>
+					<li>
+						<a href="produk-antara.html" class="">
+							<i class="ti ti-packages"></i><span>Katalog Produk ANTARA</span>
+						</a>
+					</li>
+
+					<li class="menu-title"><span>BILLING & TRANSAKSI</span></li>
+					<li>
+						<a href="invoices.html" class="">
+							<i class="ti ti-file-invoice"></i><span>Tagihan / Invoices</span><span class="badge bg-warning ms-auto text-dark">4</span>
+						</a>
+					</li>
+					<li>
+						<a href="payments.html" class="">
+							<i class="ti ti-credit-card"></i><span>Riwayat Pembayaran</span>
+						</a>
+					</li>
+
+					<li class="menu-title"><span>DEMO PORTOFOLIO</span></li>
+					<li>
+						<a href="../index.html"><i class="ti ti-arrow-back-up"></i><span>Kembali ke Beranda</span></a>
+					</li>
+					<li>
+						<a href="../login.html"><i class="ti ti-lock"></i><span>Halaman Login / OTP</span></a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="page-wrapper">
+		<div class="content container-fluid">
+
+			<!-- Page Header -->
+			<div class="d-md-flex d-block align-items-center justify-content-between page-breadcrumb mb-3">
+				<div class="my-auto mb-2">
+					<h2 class="mb-1">Tiket Support &amp; Backlog Tugas IT</h2>
+					<nav>
+						<ol class="breadcrumb mb-0">
+							<li class="breadcrumb-item"><a href="index.html"><i class="ti ti-smart-home"></i></a></li>
+							<li class="breadcrumb-item">Aplikasi CRM</li>
+							<li class="breadcrumb-item active" aria-current="page">Tiket Support &amp; To-Do</li>
+						</ol>
+					</nav>
+				</div>
+				<div class="d-flex my-xl-auto right-content align-items-center flex-wrap gap-2">
+					<button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#tambahTugasModal"><i class="ti ti-plus me-1"></i>Buat Tugas Baru</button>
+				</div>
+			</div>
+
+			<!-- Stats Row -->
+			<div class="row g-3 mb-4">
+				<div class="col-xl-3 col-sm-6">
+					<div class="card shadow-sm border-0 h-100">
+						<div class="card-body">
+							<span class="text-muted fs-12">Total Item Backlog</span>
+							<h3 class="fw-bold mb-1" id="totalCount">6</h3>
+							<span class="badge bg-secondary bg-opacity-10 text-secondary">Semua Tugas</span>
+						</div>
+					</div>
+				</div>
+				<div class="col-xl-3 col-sm-6">
+					<div class="card shadow-sm border-0 h-100">
+						<div class="card-body">
+							<span class="text-muted fs-12">Belum Selesai (Pending)</span>
+							<h3 class="fw-bold mb-1 text-danger" id="pendingCount">4</h3>
+							<span class="badge bg-danger bg-opacity-10 text-danger">Memerlukan Aksi Segera</span>
+						</div>
+					</div>
+				</div>
+				<div class="col-xl-3 col-sm-6">
+					<div class="card shadow-sm border-0 h-100">
+						<div class="card-body">
+							<span class="text-muted fs-12">Selesai (Completed)</span>
+							<h3 class="fw-bold mb-1 text-success" id="completedCount">2</h3>
+							<span class="badge bg-success bg-opacity-10 text-success">Lulus Verifikasi QA</span>
+						</div>
+					</div>
+				</div>
+				<div class="col-xl-3 col-sm-6">
+					<div class="card shadow-sm border-0 h-100">
+						<div class="card-body">
+							<span class="text-muted fs-12">Tingkat Penyelesaian</span>
+							<h3 class="fw-bold mb-1 text-primary">33.3%</h3>
+							<div class="progress" style="height: 6px;">
+								<div class="progress-bar bg-primary" style="width: 33.3%"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Todo Card -->
+			<div class="card shadow-sm border-0">
+				<div class="card-header bg-transparent border-bottom d-flex justify-content-between align-items-center">
+					<h5 class="card-title mb-0 fw-bold">Daftar Checklist Operasional Redaksi &amp; IT</h5>
+					<div class="btn-group btn-group-sm" id="todoFilterGroup">
+						<button class="btn btn-outline-secondary active" onclick="filterTodo('all', this)">Semua</button>
+						<button class="btn btn-outline-secondary" onclick="filterTodo('pending', this)">Pending</button>
+						<button class="btn btn-outline-secondary" onclick="filterTodo('done', this)">Selesai</button>
+					</div>
+				</div>
+				<div class="card-body p-0">
+					<ul class="list-group list-group-flush" id="todoList">
+						
+		<li class="list-group-item d-flex align-items-center justify-content-between p-3 todo-row" id="todo-item-1">
+			<div class="d-flex align-items-center">
+				<input class="form-check-input me-3 todo-checkbox" type="checkbox"  onchange="toggleTodo(1, this)">
+				<div>
+					<span class="fs-14 todo-text fw-semibold">Perbaikan feed foto otomatis biro Surabaya ke sistem pusat</span>
+					<div class="mt-1 fs-11 text-muted">
+						<span class="badge bg-light text-secondary me-2"><i class="ti ti-tag me-1"></i>Operasional</span>
+						<i class="ti ti-clock me-1"></i>Batas Waktu: Hari Ini
+					</div>
+				</div>
+			</div>
+			<div class="d-flex align-items-center gap-2">
+				<span class="badge bg-danger">Tinggi</span>
+				<button class="btn btn-sm btn-light text-danger" onclick="$('#todo-item-1').remove(); updateCounts();"><i class="ti ti-trash"></i></button>
+			</div>
+		</li>
+        
+		<li class="list-group-item d-flex align-items-center justify-content-between p-3 todo-row" id="todo-item-2">
+			<div class="d-flex align-items-center">
+				<input class="form-check-input me-3 todo-checkbox" type="checkbox"  onchange="toggleTodo(2, this)">
+				<div>
+					<span class="fs-14 todo-text fw-semibold">Audit token rotasi HMAC API Gateway distribusi konten mitra</span>
+					<div class="mt-1 fs-11 text-muted">
+						<span class="badge bg-light text-secondary me-2"><i class="ti ti-tag me-1"></i>Keamanan</span>
+						<i class="ti ti-clock me-1"></i>Batas Waktu: Besok
+					</div>
+				</div>
+			</div>
+			<div class="d-flex align-items-center gap-2">
+				<span class="badge bg-danger">Tinggi</span>
+				<button class="btn btn-sm btn-light text-danger" onclick="$('#todo-item-2').remove(); updateCounts();"><i class="ti ti-trash"></i></button>
+			</div>
+		</li>
+        
+		<li class="list-group-item d-flex align-items-center justify-content-between p-3 todo-row" id="todo-item-3">
+			<div class="d-flex align-items-center">
+				<input class="form-check-input me-3 todo-checkbox" type="checkbox"  onchange="toggleTodo(3, this)">
+				<div>
+					<span class="fs-14 todo-text fw-semibold">Verifikasi pembayaran paket siaran video PT Cuan Media</span>
+					<div class="mt-1 fs-11 text-muted">
+						<span class="badge bg-light text-secondary me-2"><i class="ti ti-tag me-1"></i>Keuangan</span>
+						<i class="ti ti-clock me-1"></i>Batas Waktu: 18 Jan 2026
+					</div>
+				</div>
+			</div>
+			<div class="d-flex align-items-center gap-2">
+				<span class="badge bg-warning text-dark">Menengah</span>
+				<button class="btn btn-sm btn-light text-danger" onclick="$('#todo-item-3').remove(); updateCounts();"><i class="ti ti-trash"></i></button>
+			</div>
+		</li>
+        
+		<li class="list-group-item d-flex align-items-center justify-content-between p-3 todo-row" id="todo-item-4">
+			<div class="d-flex align-items-center">
+				<input class="form-check-input me-3 todo-checkbox" type="checkbox"  onchange="toggleTodo(4, this)">
+				<div>
+					<span class="fs-14 todo-text fw-semibold">Konfigurasi firewall port streaming OTT Media Server Jayapura</span>
+					<div class="mt-1 fs-11 text-muted">
+						<span class="badge bg-light text-secondary me-2"><i class="ti ti-tag me-1"></i>Infrastruktur</span>
+						<i class="ti ti-clock me-1"></i>Batas Waktu: 20 Jan 2026
+					</div>
+				</div>
+			</div>
+			<div class="d-flex align-items-center gap-2">
+				<span class="badge bg-warning text-dark">Menengah</span>
+				<button class="btn btn-sm btn-light text-danger" onclick="$('#todo-item-4').remove(); updateCounts();"><i class="ti ti-trash"></i></button>
+			</div>
+		</li>
+        
+		<li class="list-group-item d-flex align-items-center justify-content-between p-3 todo-row" id="todo-item-5">
+			<div class="d-flex align-items-center">
+				<input class="form-check-input me-3 todo-checkbox" type="checkbox" checked onchange="toggleTodo(5, this)">
+				<div>
+					<span class="fs-14 todo-text text-decoration-line-through text-muted">Update lisensi arsip digital foto KTT G20 ke format WebP</span>
+					<div class="mt-1 fs-11 text-muted">
+						<span class="badge bg-light text-secondary me-2"><i class="ti ti-tag me-1"></i>Produk</span>
+						<i class="ti ti-clock me-1"></i>Batas Waktu: 25 Jan 2026
+					</div>
+				</div>
+			</div>
+			<div class="d-flex align-items-center gap-2">
+				<span class="badge bg-success">Rendah</span>
+				<button class="btn btn-sm btn-light text-danger" onclick="$('#todo-item-5').remove(); updateCounts();"><i class="ti ti-trash"></i></button>
+			</div>
+		</li>
+        
+		<li class="list-group-item d-flex align-items-center justify-content-between p-3 todo-row" id="todo-item-6">
+			<div class="d-flex align-items-center">
+				<input class="form-check-input me-3 todo-checkbox" type="checkbox" checked onchange="toggleTodo(6, this)">
+				<div>
+					<span class="fs-14 todo-text text-decoration-line-through text-muted">Penyelarasan backup database cluster newsroom tengah malam</span>
+					<div class="mt-1 fs-11 text-muted">
+						<span class="badge bg-light text-secondary me-2"><i class="ti ti-tag me-1"></i>Operasional</span>
+						<i class="ti ti-clock me-1"></i>Batas Waktu: 30 Jan 2026
+					</div>
+				</div>
+			</div>
+			<div class="d-flex align-items-center gap-2">
+				<span class="badge bg-success">Rendah</span>
+				<button class="btn btn-sm btn-light text-danger" onclick="$('#todo-item-6').remove(); updateCounts();"><i class="ti ti-trash"></i></button>
+			</div>
+		</li>
+        
+					</ul>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<!-- Modal Tambah Tugas -->
+	<div class="modal fade" id="tambahTugasModal" tabindex="-1" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content border-0 shadow">
+				<div class="modal-header bg-light">
+					<h5 class="modal-title fw-bold">Tambah Tiket / Tugas Baru</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body p-4">
+					<form id="formTambahTugas" onsubmit="event.preventDefault(); addNewTodo();">
+						<div class="mb-3">
+							<label class="form-label fs-13 fw-semibold">Judul Tugas / Tiket</label>
+							<input type="text" id="newTaskTitle" class="form-control" required placeholder="Contoh: Perbaikan modul RSS Feed">
+						</div>
+						<div class="row g-2 mb-3">
+							<div class="col-md-6">
+								<label class="form-label fs-13 fw-semibold">Kategori</label>
+								<select id="newTaskCategory" class="form-select">
+									<option>Operasional</option>
+									<option>Keamanan</option>
+									<option>Produk</option>
+									<option>Keuangan</option>
+									<option>Infrastruktur</option>
+								</select>
+							</div>
+							<div class="col-md-6">
+								<label class="form-label fs-13 fw-semibold">Prioritas</label>
+								<select id="newTaskPriority" class="form-select">
+									<option value="high">Tinggi (Kritis)</option>
+									<option value="medium" selected>Menengah</option>
+									<option value="low">Rendah</option>
+								</select>
+							</div>
+						</div>
+						<div class="mb-3">
+							<label class="form-label fs-13 fw-semibold">Batas Waktu</label>
+							<input type="text" id="newTaskDue" class="form-control" placeholder="Contoh: 3 Hari Lagi">
+						</div>
+						<div class="d-flex justify-content-end gap-2">
+							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+							<button type="submit" class="btn btn-primary">Simpan Tugas</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+</div> <!-- /.main-wrapper -->
+
+<!-- Core Scripts -->
+<script src="assets/js/jquery-3.7.1.min.js"></script>
+<script src="assets/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/feather.min.js"></script>
+<script src="assets/js/jquery.slimscroll.min.js"></script>
+<script src="assets/js/jquery.dataTables.min.js"></script>
+<script src="assets/js/dataTables.bootstrap5.min.js"></script>
+<script src="assets/js/moment.min.js"></script>
+<script src="assets/plugins/daterangepicker/daterangepicker.js"></script>
+<script src="assets/js/script.js"></script>
+<script src="../demo-bar/demo-bar.js"></script>
+<script>
+$(document).ready(function() {
+    // Inisialisasi daterangepicker jika ada elemen bookingrange
+    if ($.fn.daterangepicker && $('.bookingrange').length > 0) {
+        $('.bookingrange').daterangepicker({
+            opens: 'left',
+            locale: {
+                format: 'DD/MM/YYYY'
+            }
+        });
+    }
+});
+</script>
+</body>
+</html>
+
+
+<script>
+function toggleTodo(id, checkbox) {
+	var row = $(checkbox).closest('.todo-row');
+	var text = row.find('.todo-text');
+	if (checkbox.checked) {
+		text.addClass('text-decoration-line-through text-muted').removeClass('fw-semibold');
+	} else {
+		text.removeClass('text-decoration-line-through text-muted').addClass('fw-semibold');
+	}
+	updateCounts();
+}
+
+function updateCounts() {
+	var total = $('.todo-row').length;
+	var completed = $('.todo-checkbox:checked').length;
+	var pending = total - completed;
+
+	$('#totalCount').text(total);
+	$('#completedCount').text(completed);
+	$('#pendingCount').text(pending);
+}
+
+function filterTodo(type, btn) {
+	$('#todoFilterGroup button').removeClass('active btn-danger').addClass('btn-outline-secondary');
+	$(btn).addClass('active');
+
+	if (type === 'all') {
+		$('.todo-row').show();
+	} else if (type === 'pending') {
+		$('.todo-row').each(function() {
+			var chk = $(this).find('.todo-checkbox').is(':checked');
+			if (!chk) $(this).show(); else $(this).hide();
+		});
+	} else if (type === 'done') {
+		$('.todo-row').each(function() {
+			var chk = $(this).find('.todo-checkbox').is(':checked');
+			if (chk) $(this).show(); else $(this).hide();
+		});
+	}
+}
+
+var newId = 100;
+function addNewTodo() {
+	var title = $('#newTaskTitle').val();
+	var cat = $('#newTaskCategory').val();
+	var pr = $('#newTaskPriority').val();
+	var due = $('#newTaskDue').val() || 'Segera';
+
+	var prBadge = 'bg-warning text-dark';
+	var prLabel = 'Menengah';
+	if (pr === 'high') { prBadge = 'bg-danger'; prLabel = 'Tinggi'; }
+	else if (pr === 'low') { prBadge = 'bg-success'; prLabel = 'Rendah'; }
+
+	newId++;
+	var html = `
+	<li class="list-group-item d-flex align-items-center justify-content-between p-3 todo-row" id="todo-item-${newId}">
+		<div class="d-flex align-items-center">
+			<input class="form-check-input me-3 todo-checkbox" type="checkbox" onchange="toggleTodo(${newId}, this)">
+			<div>
+				<span class="fs-14 todo-text fw-semibold">${title}</span>
+				<div class="mt-1 fs-11 text-muted">
+					<span class="badge bg-light text-secondary me-2"><i class="ti ti-tag me-1"></i>${cat}</span>
+					<i class="ti ti-clock me-1"></i>Batas Waktu: ${due}
+				</div>
+			</div>
+		</div>
+		<div class="d-flex align-items-center gap-2">
+			<span class="badge ${prBadge}">${prLabel}</span>
+			<button class="btn btn-sm btn-light text-danger" onclick="$('#todo-item-${newId}').remove(); updateCounts();"><i class="ti ti-trash"></i></button>
+		</div>
+	</li>`;
+
+	$('#todoList').prepend(html);
+	updateCounts();
+	$('#tambahTugasModal').modal('hide');
+	$('#formTambahTugas')[0].reset();
+}
+</script>
